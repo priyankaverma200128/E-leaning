@@ -1,0 +1,150 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+// import ApiServices from './Apiservices'; 
+import { toast } from 'react-toastify';
+import Apiservices from "../layout/Apiservices"
+import { Link } from 'react-router-dom';
+import Courses from '../Courses';
+
+export default function UpdateBranch() {
+  const [coursesdata, setCoursesdata] = useState([]);
+  const [coursename, setcoursename] = useState('');
+  const [SingleBranchName,setSingleBranchName] = useState('')
+  const params = useParams();
+  const branchId = params.branchId
+  const courseId = params.courseId
+  console.log(branchId)
+  const [name, setName] = useState('');
+  const [image, setImage] = useState('');
+  const [previousImage,setPreviousImage]=useState("")
+  const changeImage = (e) => {
+  
+    // console.log(e.target.files[0])
+    setImage(e.target.files[0])
+
+  }
+  useEffect(
+    () => {
+      Apiservices.ShowCourses()
+        .then((res) => {
+          console.log(res.data.data);
+          setCoursesdata(res.data.data);
+        })
+        .catch((error) => {
+          console.log("Error fetching courses:", error);
+        })
+    }, []
+  )
+  const nav = useNavigate()
+
+
+  const formSubmit = async (e) => {
+    e.preventDefault();
+    // console.log(coursename);
+    let data = new FormData()
+    data.append("name", SingleBranchName)
+    data.append("_id", branchId)
+    data.append("courseId",courseId)
+
+    if (!!image) {
+      data.append("attachment", image)
+    }
+    Apiservices.UpdateBranch(data)
+      .then((res) => {
+        toast.success(res.data.message)
+        nav("/admin/Showbranches")
+      })
+      .catch((err) => {
+        toast.error(err.message)
+      })
+  };
+  useEffect(
+    ()=>{
+      const data ={
+        _id:courseId
+      }
+      Apiservices.SingleCourse(data).then(
+        (res)=>{
+          console.log(res.data.data)
+          setcoursename(res.data?.data?.courseName)
+        }
+      )
+    },[]
+  )
+  useEffect(
+    ()=>{
+      const data={
+        _id:branchId
+      }
+      Apiservices.SingleBranch(data)
+      .then((res)=>{
+        console.log(res)
+        setSingleBranchName(res.data.data.name)
+        setPreviousImage(res.data.data.image)
+        
+      })
+      .catch((err)=>{
+        toast.error(err.message)
+      })
+    },[]
+  )
+
+
+  return (
+    <>
+      {/* Heading starts here */}
+      <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
+        <h1>Update Branch</h1>
+      </div>
+
+      <div className='container'>
+        <div className='row'>
+          <div className='col'>
+            <div className="row">
+              <h3 className="mb-4 pb-2 pb-md-0 mb-md-4">Select Course</h3>
+              <div className="col-md-6 mb-4">
+
+                <div className="form-outline">
+                  <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option defaultValue="Category">{coursename}</option>
+                    {coursesdata?.map((e, index) => {
+                  return <option value={e._id} key={index} >{e.courseName}</option>
+
+                })}
+                  </select>
+                </div>
+
+              </div>
+            </div>
+           
+            <form onSubmit={formSubmit}>
+          Name :{' '}
+          <input
+            type='text'
+            className='form-control form-control-lg'
+            placeholder='Enter branch name'
+            style={{width:"300px"}}
+            value={SingleBranchName}
+            onChange={(e)=>{setSingleBranchName(e.target.value)}}
+          />
+          <br />
+          <label>Image</label>
+              <input type="file" onChange={changeImage} />
+          <br />
+         
+          <td>
+             
+              <button className='btn btn-primary btn-lg my-4' >Update</button>
+             
+            </td>
+        </form>
+
+            
+
+
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

@@ -82,6 +82,7 @@ export default function AddUserMaterial() {
   const formSubmit = (e) => {
     e.preventDefault();
     let data = new FormData()
+    
     // const data = { material }; // Define the data object here
     data.append("name", name)
     data.append("courseid", courseId)

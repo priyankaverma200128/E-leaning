@@ -18,7 +18,7 @@ export default function Login() {
   }
   const handleForm = (e) => {
     e.preventDefault()
-    console.log("Form Submit")
+    console.log("Form Submitted")
     let data = {
       email: email,
       password: pass

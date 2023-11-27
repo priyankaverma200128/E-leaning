@@ -190,7 +190,7 @@ export default function UserUpdateMaterial() {
 
             <div className="form-outline">
               <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value={courseId} onChange={(e)=>{setCourseId(e.target.value)}} >
-                <option defaultValue="Category">{courseName}</option>
+                <option defaultValue="Category">Select your Course</option>
                 {coursesdata?.map((e, index) => {
                   return <option value={e._id} key={index} >{e.courseName}</option>
 

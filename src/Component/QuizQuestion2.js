@@ -33,7 +33,7 @@ export default function QuizQuestion2()  {
             setquiz(res.data?.data)
           }
         )
-     ,[]
+     
     
     Apiservices.ShowUserQuizQuestion(requestData)
       .then((res) => {

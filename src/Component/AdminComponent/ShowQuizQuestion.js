@@ -105,7 +105,7 @@ export default function ShowQuizQuestion() {
                         <td>{e?.answer}</td>
                         <td>
                                     <Link to={"/admin/deletequizquestion/"+e?._id}>
-                                        <button className="btn btn-lg btn-outline-danger" onClick={() => deleteData(e?._id) } ><i class="bi bi-trash-fill"></i></button>
+                                        <button className="btn btn-lg btn-outline-danger" onClick={() => deleteData(e?._id) } ><i className="bi bi-trash-fill"></i></button>
                                     </Link>
                                 </td>
 

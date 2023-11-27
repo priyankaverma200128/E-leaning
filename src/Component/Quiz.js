@@ -35,17 +35,17 @@ if(!token|| token=="null"|| token==null){
 
     return(
         <>
-         <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Welcome To Quiz</h1>
+         <div className="container-fluid bg-primary py-5 mb-5 page-header">
+        <div className="container py-5">
+            <div className="row justify-content-center">
+                <div className="col-lg-10 text-center">
+                    <h1 className="display-3 text-white animated slideInDown">Welcome To Quiz</h1>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
+                        <ol className="breadcrumb justify-content-center">
                          
                             
-                            <li class="breadcrumb-item"><Link to="/user/quizquestion">Quiz Questions</Link></li>
-                            <li class="breadcrumb-item"><Link to="/user/playedquiz">PlayedQuiz</Link></li>
+                            <li className="breadcrumb-item"><Link to="/user/quizquestion">Quiz Questions</Link></li>
+                            <li className="breadcrumb-item"><Link to="/user/playedquiz">PlayedQuiz</Link></li>
 
                         </ol>
                     </nav>

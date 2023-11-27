@@ -55,7 +55,7 @@ export default function ShowQuiz() {
             </div>
 
             <div className="container my-4 mt-4">
-                <table class="table table-striped table-hover">
+                <table className="table table-striped table-hover">
                     <thead>
                         <tr className="table-dark">
                             <th scope="col">S. No.</th>
@@ -76,13 +76,13 @@ export default function ShowQuiz() {
 
                                 <td>
                                     <Link to={"/admin/deletequiz/" + e?._id}>
-                                        <button className="btn btn-lg btn-outline-danger" onClick={() => { deleteData(e?._id) }} ><i class="bi bi-trash-fill"></i></button>
+                                        <button className="btn btn-lg btn-outline-danger" onClick={() => { deleteData(e?._id) }} ><i className="bi bi-trash-fill"></i></button>
                                     </Link>
                                 </td>
 
                                 <td>
                                     <Link to={"/admin/Updatequiz/"+ e?._id + "/"+ e?.courseid+ "/"+ e?.branchid}>
-                                        <button className="btn btn-lg  btn-outline-success " ><i class="bi bi-pencil-square"></i></button>
+                                        <button className="btn btn-lg  btn-outline-success " ><i className="bi bi-pencil-square"></i></button>
                                     </Link>
                                 </td>
                             </tr>

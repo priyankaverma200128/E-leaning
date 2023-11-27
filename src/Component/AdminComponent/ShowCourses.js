@@ -59,7 +59,7 @@ export default function ShowCourses() {
             </div>
 
             <div className="container my-4 mt-4">
-                <table class="table table-striped table-hover">
+                <table className="table table-striped table-hover">
                     <thead>
                         <tr className="table-dark">
                             <th scope="col">S. No.</th>
@@ -81,12 +81,12 @@ export default function ShowCourses() {
                                 /></td>
                                 <td>
                                     <Link to={"/admin/deleteCourse/" +e?._id}>
-                                    <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i class="bi bi-trash-fill"></i></button>
+                                    <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i className="bi bi-trash-fill"></i></button>
                                     </Link>
                                     </td>
                                 <td>
                                     <Link to={"/admin/UpdateCourses/"+ e?._id}>
-                                        <button className="btn btn-lg  btn-outline-success " ><i class="bi bi-pencil-square"></i></button>
+                                        <button className="btn btn-lg  btn-outline-success " ><i className="bi bi-pencil-square"></i></button>
                                     </Link>
                                 </td>
                             </tr>

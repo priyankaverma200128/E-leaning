@@ -2,7 +2,7 @@ import axios from "axios";
 import * as qs from "qs"
 
 // const BASE_URL ="http://localhost:5000/"
-const BASE_URL ="https://unusual-blue-wildebeest.cyclic.app/"
+const BASE_URL ="https://e-learning.cyclic.app/"
 
 class Apiservices {
     login(data){

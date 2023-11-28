@@ -93,7 +93,7 @@ export default function ShowMaterial() {
                                 <td>{e?.title}</td>
                                 <td>{e?.description}</td>
                                 <td>
-                                    <Link to={e?.signedUrl} style={{ width: "200px", height: "200px" }} >
+                                    <Link to={e?.signedUrl} target='_blank' style={{ width: "200px", height: "200px" }} >
                                         View
                                     </Link>
                                 </td>

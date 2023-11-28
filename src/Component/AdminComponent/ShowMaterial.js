@@ -7,9 +7,8 @@ import { RingLoader } from "react-spinners"
 
 export default function ShowMaterial() {
     const nav = useNavigate()
-    const [isBtn, setIsBtn] = useState(false)
     const [data, setData] = useState([]);
-    const [load, setLoad] = useState(true)
+    const [load, setload] = useState(true)
     const obj = {
         position: "absolute",
         top: "50%",
@@ -27,20 +26,19 @@ export default function ShowMaterial() {
                     console.log(res.data.data);
                     // toast.success(res.data?.message)
                     setData(res.data.data)
-                    setLoad(false)
+                    setload(false)
 
                 })
                 .catch((err) => {
                     console.error(err);
-                    setLoad(false)
+                    setload(false)
                     toast.error("Something went wrong!!")
                 })
 
         }, [load]
     )
     const deleteData = (id) => {
-        setLoad(true)
-        setIsBtn(true)
+        setload(true)
         let data = {
             _id: id
         }
@@ -49,14 +47,13 @@ export default function ShowMaterial() {
                 setTimeout(() => {
                     toast.success(res.data.message)
                     nav("/admin/showmaterial")
-                    setLoad(false)
+                    setload(false)
                 }, 1500);
             }
         ).catch(
             (err) => {
                 toast.error("Something went Wrong")
-                setIsBtn(false)
-                setLoad(false)
+                setload(false)
             }
         )
     }

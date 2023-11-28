@@ -36,7 +36,7 @@ export default function ShowMaterial() {
                     toast.error("Something went wrong!!")
                 })
 
-        }, []
+        }, [load]
     )
     const deleteData = (id) => {
         setLoad(true)

@@ -11,7 +11,9 @@ export default function AdminMaster() {
   return (
     <>
     <AdminHeader/>
-    <Outlet/>
+    <div style={{minHeight:'70vh'}}>
+    <Outlet />
+    </div>
     <Footer/>
     </>
   )

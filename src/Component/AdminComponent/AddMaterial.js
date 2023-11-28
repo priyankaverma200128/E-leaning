@@ -11,7 +11,6 @@ export default function AddMaterial() {
   const [coursesdata, setCoursesdata] = useState([]);
   const [branch, setBranch] = useState([]);
   const [materialtype, setMaterialtype] = useState([]);
-  const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
@@ -83,7 +82,6 @@ export default function AddMaterial() {
     e.preventDefault();
     let data = new FormData()
     // const data = { material }; // Define the data object here
-    data.append("name", name)
     data.append("courseid", courseId)
     data.append("branchid", branchId)
     data.append("materialtypeid", materialtypeid)

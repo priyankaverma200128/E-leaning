@@ -140,7 +140,7 @@ export default function Master() {
                               </a>
                         ) : selectedmaterialtypename === 'Image' ? (
                           <img
-                            src={`http://localhost:5000/${e?.attachment}`}
+                            src={e?.signedUrl}
                             alt="Material"
                             style={{ height: '200px', width: '200px' }}
                           />

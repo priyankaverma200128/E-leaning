@@ -120,7 +120,7 @@ class Apiservices {
         const header1={
             Authorization : token
         }
-        return axios.post(BASE_URL+"admin/material/all",qs.stringify(data),{headers:header1})
+        return axios.post(BASE_URL+"admin/material/all",{},{headers:header1})
     }
     DeleteMaterial(data){
         const token = sessionStorage.getItem("token")

@@ -72,7 +72,7 @@ export default function ShowBranches() {
                                 <td>{index + 1}</td>
                                 <td>{e?.courseId?.courseName}</td>
                                 <td>{e?.name}</td>
-                                <td><img src={"http://localhost:5000/" + e?.attachment}
+                                <td><img src={e?.signedUrl}
                                     style={{ height: "200px", width: "200px" }} alt={e?.name}
                                 /></td>
 

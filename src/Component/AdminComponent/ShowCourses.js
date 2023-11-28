@@ -76,7 +76,7 @@ export default function ShowCourses() {
                             return <tr key={e._id}>
                                 <td>{index + 1}</td>
                                 <td>{e?.courseName}</td>
-                                <td><img src={"http://127.0.0.1:5000/"+e?.attachment}
+                                <td><img src={e?.signedUrl}
                                     style={{ height: "200px", width: "200px" }} alt={e?.name}
                                 /></td>
                                 <td>

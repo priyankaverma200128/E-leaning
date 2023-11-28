@@ -11,7 +11,7 @@ export default function ShowMaterial() {
     const [load, setload] = useState(true)
     const obj = {
         position: "absolute",
-        top: "50%",
+        top: "30%",
         left: "50%",
         zIndex: 1,
     }
@@ -23,11 +23,13 @@ export default function ShowMaterial() {
 
             Apiservices.ShowMaterial()
                 .then((res) => {
-                    console.log(res.data.data);
-                    // toast.success(res.data?.message)
-                    setData(res.data.data)
-                    setload(false)
+                    setTimeout(() => {
+                        console.log(res.data.data);
+                        // toast.success(res.data?.message)
+                        setData(res.data.data)
+                        setload(false)
 
+                    }, 1500);
                 })
                 .catch((err) => {
                     console.error(err);

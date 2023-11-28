@@ -63,7 +63,7 @@ export default function ShowMaterial() {
 
     return (
         <>
-            <RingLoader size={100} loading={load} cssOverride={obj} />
+           { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
             <div className={load == true ? "disable-screen " : " "}>
                 {/* Heading starts here */}
                 <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>

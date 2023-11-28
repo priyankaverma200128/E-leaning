@@ -115,7 +115,7 @@ export default function Master() {
                       <div className="position-relative overflow-hidden">
                         {selectedmaterialtypename === 'pdf' ? (
                           <a
-                            href={`http://localhost:5000/${e?.attachment}`}
+                            href={e?.signedUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -123,7 +123,7 @@ export default function Master() {
                           </a>
                         ) : selectedmaterialtypename === 'notes' ? (
                           <a
-                            href={`http://localhost:5000/${e?.attachment}`}
+                            href={e?.signedUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -132,7 +132,7 @@ export default function Master() {
                         ) : selectedmaterialtypename === 'video' ? (
                          
                             <a
-                              href={`http://localhost:5000/${e?.attachment}`}
+                              href={e?.signedUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                               >

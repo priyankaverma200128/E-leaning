@@ -115,7 +115,7 @@ class Apiservices {
         }
         return axios.post(BASE_URL+"customer/material/add",data,{headers:header1})
     }
-    ShowMaterial(data){
+    ShowMaterial(){
         const token = sessionStorage.getItem("token")
         const header1={
             Authorization : token

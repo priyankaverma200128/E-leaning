@@ -102,6 +102,7 @@ function App() {
     <Route path='/user' element={<UserMaster/>}>
       <Route path='/user' element={<Home/>}/>
       <Route path='/user/courses' element={<Courses/>}/>
+      <Route path='/user/about' element={<About/>}/>
       <Route path='/user/branches/:id' element={<Branches/>}/>
       <Route path='/user/showmaterial' element={<ShowUserMaterial/>}/>
       <Route path='/user/updatematerial/:MaterialId' element={<UserUpdateMaterial/>}/>

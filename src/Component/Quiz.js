@@ -4,9 +4,17 @@ import { toast } from "react-toastify"
 
 import Apiservices from "../Component/layout/Apiservices"
 import { useNavigate } from "react-router-dom"
+import { RingLoader } from "react-spinners"
 
 
 export default function Quiz(){
+    const [load,setload]=useState(true)
+  const obj = {
+      position: "absolute",
+      top: "30%",
+      left: "50%",
+      zIndex: 1,
+  }
   const history = useNavigate();
     
   const [data, setData] = useState([])
@@ -16,17 +24,19 @@ export default function Quiz(){
             console.log(res.data.data);
             toast.success(res.data?.message)
             setData(res.data.data)
+            setload(false)
 
         })
         .catch((err) => {
             console.error(err);
             toast.error("Something went wrong!!");
+            setload(false)
         })
 }
 useEffect(
   () => {
       getData();
-  }, []
+  }, [load]
 )
 const token = sessionStorage.getItem("token")
 if(!token|| token=="null"|| token==null){
@@ -35,6 +45,8 @@ if(!token|| token=="null"|| token==null){
 
     return(
         <>
+        { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
          <div className="container-fluid bg-primary py-5 mb-5 page-header">
         <div className="container py-5">
             <div className="row justify-content-center">
@@ -88,6 +100,7 @@ if(!token|| token=="null"|| token==null){
           }
           </div>
         </div>
+    </div>
     </div>
 
         

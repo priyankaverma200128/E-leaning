@@ -101,7 +101,8 @@ export default function ShowMaterial() {
 
                                 <td>
 
-                                    <button className="btn btn-lg btn-outline-danger" onClick={() => { deleteData(e?._id) }} ><i className="bi bi-trash-fill"></i></button>
+                                <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i className="bi bi-trash-fill"></i></button>
+                                    
 
                                 </td>
 

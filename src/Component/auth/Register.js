@@ -95,8 +95,10 @@ export default function Register() {
                                                 <div className="d-flex flex-row align-items-center mb-4">
                                                     <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div className="form-outline flex-fill mb-0">
-                                                        <input type="text" id="form3Example4c" className="form-control" onChange={(e)=>{setGender(e.target.value)}}/>
-                                                        <label className="form-label" for="form3Example4c">Gender</label>
+                                                        
+                                                        <label>Gender</label>
+                                                        <input type='radio' name='gender' onChange={(e)=>{setGender(e.target.value)}} value="M" checked={gender=="M"}/>Male
+                                                        <input type='radio' name='gender' onChange={(e)=>{setGender(e.target.value)}} value="F" checked={gender=="M"}/>Female
                                                     </div>
                                                 </div>
 

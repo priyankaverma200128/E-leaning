@@ -3,8 +3,16 @@ import Apiservices from './layout/Apiservices';
 import { toast } from 'react-toastify';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link, useLocation } from 'react-router-dom';
+import { RingLoader } from "react-spinners"
 
 export default function QuizQuestion2()  {
+  const [load,setload]=useState(true)
+  const obj = {
+      position: "absolute",
+      top: "30%",
+      left: "50%",
+      zIndex: 1,
+  }
   const location = useLocation();
   const { state } = location || {};
   const [totalQuestions,setTotalQuestions]=useState(0)
@@ -39,10 +47,12 @@ export default function QuizQuestion2()  {
       .then((res) => {
         console.log(res.data.data);
         setData(res.data.data);
+        setload(false)
       })
       .catch((err) => {
         console.error(err);
         toast.error('Something went wrong!!');
+        setload(false)
       });
   };
  
@@ -55,8 +65,8 @@ export default function QuizQuestion2()  {
   };
 
   const getResult = () =>{ 
-    const totalQuestion = data.length;
-    setTotalQuestions(totalQuestion)
+    const totalQuestions = data.length;
+    setTotalQuestions(totalQuestions)
     let totalMarks = 0;
 
     data.forEach((question) => {
@@ -85,41 +95,20 @@ export default function QuizQuestion2()  {
         toast.success("Data added")
     })
 
-    // console.log(totalMarks, "marks")
-    // Use navigate to navigate to the result page and pass the state
-    // navigate(`/user/result/${quizId}`, {
-    //   state: {
-    //     quizId: quizId,
-    //     marks: totalMarks,
-    //     totalQuestions: totalQuestions,
-    //     questionsWithAnswers: data.map((question) => {
-    //       const mappedData = {
-    //         question: question.questiontitle,
-    //         correctAnswer: question.answer,
-    //         selectedAnswer: selectedAnswers[question._id],
-    //         option1: question.option1,
-    //         option2: question.option2,
-    //         option3: question.option3,
-    //         option4: question.option4,
-    //       };
     
-    //       console.log(mappedData); // Log the mapped data to the console
-    
-    //       return mappedData;
-    //     }),
-    //   },
-    // });
   } 
   useEffect(() => {
     getData();
   }, []);
 
   return (
-    <div>
-      <div className="row g-4 justify-content-center"style={{paddingTop:"50px"}}>
+    <div className='container' >
+      { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
+      <div className="row g-4 justify-content-center "style={{paddingTop:"50px"}}>
         {data?.map((e, index) => (
-          <div key={index} className="col-lg-12 wow fadeInUp my-4 " data-wow-delay="0.1s"style={{paddingRight:"400px",paddingLeft:"400px"}}>
-            <div className="card course-item bg-light">
+          <div key={index} className="col-lg-12 wow fadeInUp my-4 " data-wow-delay="0.1s" style={{paddingLeft:"50px", paddingRight:"50px"}} >
+            <div className="card course-item bg-light " >
               <div className="card-header">
                 <div className="card-title" style={{ paddingLeft: '20px' }}>
                   {index + 1}. {e?.questiontitle}
@@ -198,6 +187,7 @@ export default function QuizQuestion2()  {
       </>
       :""
       }
+      </div>
     </div>
 
           

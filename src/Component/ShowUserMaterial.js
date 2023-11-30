@@ -3,12 +3,22 @@ import Apiservices from './layout/Apiservices'
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
+import { RingLoader } from "react-spinners"
 
 export default function ShowUserMaterial() {
     const nav = useNavigate()
     const [isBtn, setIsBtn] = useState(false)
   
     const [data, setData] = useState([]);
+    const [load, setload] = useState(true)
+    const obj = {
+        position: "absolute",
+        top: "30%",
+        left: "50%",
+        zIndex: 1,
+    }
+
+
   
       
       
@@ -21,14 +31,16 @@ export default function ShowUserMaterial() {
                     console.log(res.data.data);
                     // toast.success(res.data?.message)
                     setData(res.data.data)
+                    setload(false)
 
                 })
                 .catch((err) => {
                     console.error(err);
                     toast.error("Something went wrong!!")
+                    setload(false)
                 })
 
-        }, []
+        }, [load]
     )
     const deleteData=(id)=>{
         setIsBtn(true)
@@ -50,6 +62,8 @@ export default function ShowUserMaterial() {
 
     return (
         <>
+        { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
             {/* Heading starts here */}
             <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
                 <h1>All Materials</h1>
@@ -97,6 +111,7 @@ export default function ShowUserMaterial() {
                         </tr>
                     })}
                 </table>
+                </div>
             </div>
         </>
     )

@@ -7,7 +7,9 @@ export default function UserMaster() {
   return (
     <div>
       <UserHeader/>
+      <div style={{minHeight:'70vh'}}>
       <Outlet/>
+      </div>
       <Footer/>
     </div>
   )

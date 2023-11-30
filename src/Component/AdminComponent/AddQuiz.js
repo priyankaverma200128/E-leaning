@@ -63,9 +63,6 @@ const handlebranchId = (e)=>{
 
     }
 
-    
-    
-   
     Apiservices.AddQuiz(data)
       .then((res) => {
         toast.success(res.data.message)

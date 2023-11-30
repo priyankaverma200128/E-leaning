@@ -2,10 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Apiservices from '../layout/Apiservices';
 import { toast } from 'react-toastify';
+import { RingLoader } from "react-spinners"
 
 export default function ShowQuizQuestion() {
     const nav = useNavigate();
     const [isBtn, setIsBtn] = useState(false)
+    const [load, setload] = useState(true)
+    const obj = {
+        position: "absolute",
+        top: "30%",
+        left: "50%",
+        zIndex: 1,
+    }
 
     const [ data, setData] = useState([])
     const [ quiz, setQuiz] = useState([])
@@ -44,10 +52,12 @@ export default function ShowQuizQuestion() {
             Apiservices.ShowQuizQuestion()
             .then((res)=>{
                 setData(res.data.data)
+                setload(false)
             })
             .catch((err)=>{
                 // console.error(err);
                 toast.error("Something went wrong!!");
+                setload(false)
 
             })
         },[quizId]
@@ -72,6 +82,8 @@ export default function ShowQuizQuestion() {
     
   return (
     <>
+    { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
      {/* Heading starts here */}
      <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
                 <h1>All QuizQuestion</h1>
@@ -118,10 +130,10 @@ export default function ShowQuizQuestion() {
                 })}
             </tbody>
         </table>
+        </div>
     </div>
 
     
-    
-    </>
-  )
+    </>
+)
 }

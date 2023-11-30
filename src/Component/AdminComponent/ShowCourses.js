@@ -4,12 +4,18 @@ import { toast } from "react-toastify"
 import { Link } from "react-router-dom"
 import Apiservices from "../layout/Apiservices"
 import { useNavigate } from "react-router-dom"
+import { RingLoader } from "react-spinners"
 
 export default function ShowCourses() {
     
     const nav = useNavigate()
-    const [load,setLoad]=useState(true)
-    const [isBtn,setIsBtn]=useState(false) 
+    const [load,setload]=useState(true)
+    const obj = {
+        position: "absolute",
+        top: "30%",
+        left: "50%",
+        zIndex: 1,
+    }
 
     const history = useNavigate();
     
@@ -20,17 +26,19 @@ export default function ShowCourses() {
                 console.log(res.data.data);
                 toast.success(res.data?.message)
                 setData(res.data.data)
+                setload(false)
 
             })
             .catch((err) => {
                 console.error(err);
+                setload(false)
                 toast.error("Something went wrong!!");
             })
     }
     useEffect(
         () => {
             getData();
-        }, []
+        }, [load]
     )
     const deleteData=(id)=>{
         setIsBtn(true)
@@ -53,6 +61,8 @@ export default function ShowCourses() {
     }
     return (
         <>
+        { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
             {/* Heading starts here */}
             <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
                 <h1>All Courses</h1>
@@ -80,9 +90,9 @@ export default function ShowCourses() {
                                     style={{ height: "200px", width: "200px" }} alt={e?.name}
                                 /></td>
                                 <td>
-                                    <Link to={"/admin/deleteCourse/" +e?._id}>
+                                    
                                     <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i className="bi bi-trash-fill"></i></button>
-                                    </Link>
+                                    
                                     </td>
                                 <td>
                                     <Link to={"/admin/UpdateCourses/"+ e?._id}>
@@ -93,6 +103,7 @@ export default function ShowCourses() {
                         })}
                     </tbody>
                 </table>
+                </div>
 
             </div>
 

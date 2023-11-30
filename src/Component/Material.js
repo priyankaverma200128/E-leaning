@@ -2,8 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import Apiservices from "./layout/Apiservices";
 import { toast } from "react-toastify";
+import { RingLoader } from "react-spinners"
 
 export default function Master() {
+  const [load,setload]=useState(true)
+  const obj = {
+      position: "absolute",
+      top: "30%",
+      left: "50%",
+      zIndex: 1,
+  }
   const [materialtype, setMaterialtype] = useState([]);
   const [materialid, setMaterialid] = useState('');
   // const [branchid, setBranchid] = useState('');
@@ -21,11 +29,13 @@ export default function Master() {
       .then((res) => {
         console.log(res.data.data);
         setData(res.data.data);
+      
         
       })
       .catch((err) => {
         console.log(err);
         toast.error("Something went wrong!!");
+        
       });
   };
 
@@ -36,15 +46,18 @@ export default function Master() {
 
   const Materialid = (e) => {
     setMaterialid(e.target.value);
+    
   };
 
   useEffect(() => {
     Apiservices.ShowMaterialType(data)
       .then((res) => {
         setMaterialtype(res.data.data);
+        setload(false)
       })
       .catch((err) => {
         toast.error("Something went wrong!!");
+        setload(false)
       });
   }, []);
 
@@ -57,6 +70,8 @@ export default function Master() {
     }
   return (
     <>
+    { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
       <div className="col-md-6 md-4">
         <div
           className="form-outline"
@@ -155,6 +170,7 @@ export default function Master() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </>
   );

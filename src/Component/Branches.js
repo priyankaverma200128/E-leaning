@@ -6,10 +6,17 @@ import { toast } from "react-toastify"
 import { Link, useParams } from "react-router-dom"
 import Apiservices from "../Component/layout/Apiservices"
 import { useNavigate } from "react-router-dom"
+import { RingLoader } from "react-spinners"
 
 
 export default function Branches(){
-  // const [courseid,setCourseId] = useState('')
+    const [load,setload]=useState(true)
+    const obj = {
+        position: "absolute",
+        top: "30%",
+        left: "50%",
+        zIndex: 1,
+    }
   const params = useParams()
   const courseId = params.id
   console.log(courseId)
@@ -28,20 +35,24 @@ export default function Branches(){
 
             setData(res.data.data)
             // setcourseId(res.data.data.courseId)
+            setload(false)
 
         })
         .catch((err) => {
             console.error(err);
             toast.error("Something went wrong!!");
+            setload(false)
         })
 }
 useEffect(
   () => {
       getData();
-  }, []
+  }, [load]
 )
     return(
         <>
+        { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
       
  <div className="container-xxl py-5">
         <div className="container-fluid">
@@ -77,6 +88,7 @@ useEffect(
           }
           </div>
         </div>
+    </div>
     </div>
 
         

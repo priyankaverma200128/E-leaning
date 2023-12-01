@@ -19,7 +19,6 @@ export default function ShowCourses() {
 
     const history = useNavigate();
     
-    const [data, setData] = useState([])
     const getData = () => {
         Apiservices.ShowCourses(data)
             .then((res) => {
@@ -41,7 +40,7 @@ export default function ShowCourses() {
         }, [load]
     )
     const deleteData=(id)=>{
-        setIsBtn(true)
+        setload(true)
         let data={
             _id:id
         }
@@ -49,13 +48,13 @@ export default function ShowCourses() {
             (res)=>{
                 toast.success(res.data.message)
                 nav("/admin/showcourses")
-                setIsBtn(false)
+                setload(false)
                 // window.location.reload() //but it reloads the entire page
             }
         ).catch(
             (err)=>{
                 toast.error("Something went Wrong")
-                setIsBtn(false)
+                setload(false)
             }
         )
     }

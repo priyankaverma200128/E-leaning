@@ -8,7 +8,9 @@ export default function Master(){
     return(
         <>
         <Header/>
-        <Outlet/>
+        <div style={{minHeight:'70vh'}}>
+      <Outlet/>
+      </div>
         <Footer/>
         
         

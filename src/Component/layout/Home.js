@@ -7,17 +7,17 @@ export default function Home(){
       
       <Carousel>
   {/* Slide 1 */}
-  <div>
-    <img src="/assets/img/carousel-1.jpg" alt="Slide 1" />
+  <div >
+    <img src="/assets/img/carousel-1.jpg" className="img-fluid" alt="Slide 1" />
     <div className="carousel-text">
-      <div className="carousel-text-content">
-        <h5 className="text-primary text-uppercase mb-3 animated slideInDown">
+      <div className="carousel-text-content ">
+        <h5 className="text-primary text-uppercase mb-3 animated slideInDown ">
           Best Online Courses
         </h5>
-        <h1 className="display-3 text-white animated slideInDown">
+        <h1 className=" text-white animated slideInDown">
           The Best Online Learning Platform
         </h1>
-        <p className="fs-5 text-white mb-4 pb-2">
+        <p className=" fs-5 text-white mb-4 pb-2">
         E-learning, or electronic learning, refers to the use of digital technologies to deliver educational content and facilitate learning. It has become a popular and flexible alternative to traditional classroom-based education. Key aspects of e-learning include:
         </p>
         <div className="btn-container">
@@ -34,13 +34,14 @@ export default function Home(){
 
   {/* Slide 2 */}
   <div>
-    <img src="/assets/img/carousel-2.jpg" alt="Slide 2" className="img-fluid "/>
+    <img src="/assets/img/carousel-2.jpg"  alt="Slide 2" className="img-fluid "/>
+    <div className="col-lg-10">
     <div className="carousel-text">
       <div className="carousel-text-content">
-        <h5 className="text-primary text-uppercase mb-3 animated slideInDown">
+        <h5 className="text-primary text-uppercase mb-3 animated slideInDown display-6">
           Best Online Courses
         </h5>
-        <h1 className="display-3 text-white animated slideInDown">
+        <h1 className="display-6 text-white animated slideInDown">
           Get Educated Online From Your Home
         </h1>
         <p className="fs-5 text-white mb-4 pb-2">
@@ -55,6 +56,7 @@ export default function Home(){
           </a>
         </div>
       </div>
+    </div>
     </div>
   </div>
     </Carousel>

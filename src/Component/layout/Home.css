@@ -22,9 +22,9 @@
   
   .carousel-text-content {
     text-align: left; /* Align text to the center within the container */
-    max-width: 65%; /* Adjust the width as desired (e.g., 50-75%) */
+    max-width: 100%; /* Adjust the width as desired (e.g., 50-75%) */
     padding: 20px; /* Adjust padding as needed */
-    padding-left: 50px;
+    padding-left: 20px;
   }
   
   .btn-container {
@@ -37,6 +37,17 @@
   }
   
   /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .carousel-text h1, .carousel-text h5 {
+      font-size: 10px !important; /* Adjust the font size as needed */
+      /* width: 100%; */
+    }
+  
+    .carousel-text p {
+      font-size: 7px !important; /* Adjust the font size as needed */
+      /* width: 100%; */
+    }
+  }
   
   /* Small screens (e.g., smartphones) */
   

@@ -112,7 +112,7 @@ export default function Login() {
             <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
               <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                   <img src='https://i.pinimg.com/736x/bf/be/10/bfbe10a424c11c26405080efbf52e939.jpg'
-                  style={{"width": "450px",height:"500px", "alt":"logo",paddingRight:"60px"}}/>
+                className='img-fluid'  style={{"width": "450px",height:"500px", "alt":"logo",paddingRight:"10px"}}/>
               </div>
             </div>
           </div>

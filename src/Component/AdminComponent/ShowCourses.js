@@ -10,6 +10,7 @@ export default function ShowCourses() {
     
     const nav = useNavigate()
     const [load,setload]=useState(true)
+    const [data, setData] = useState([])
     const obj = {
         position: "absolute",
         top: "30%",

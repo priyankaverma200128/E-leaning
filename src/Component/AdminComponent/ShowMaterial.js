@@ -71,6 +71,7 @@ export default function ShowMaterial() {
                 </div>
 
                 <div className='container my-4 mt-4'>
+                <div class="table-responsive">
 
                     <table className='table table-striped table-hover'>
                         <thead>
@@ -117,6 +118,7 @@ export default function ShowMaterial() {
                             </tr>
                         })}
                     </table>
+                </div>
                 </div>
             </div>
         </>

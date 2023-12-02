@@ -56,6 +56,7 @@ if(!token|| token=="null"|| token==null){
         <h1>Played Quiz</h1>
       </div>
       <div className="container my-4 mt-4">
+      <div class="table-responsive">
         <table className="table table-striped table-hover">
           <thead>
             <tr className="table-dark">
@@ -80,6 +81,7 @@ if(!token|| token=="null"|| token==null){
             })}
           </tbody>
         </table>
+      </div>
       </div>
       </div>
     </>

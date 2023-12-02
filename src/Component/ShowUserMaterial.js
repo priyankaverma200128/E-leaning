@@ -70,8 +70,8 @@ export default function ShowUserMaterial() {
             </div>
           
             <div className='container my-4 mt-4'>
-
-                <table className='table table-striped table-hover'>
+            <div class="table-responsive">
+                <table className='table table-striped table-hover '>
                     <thead>
                         <tr className="table-dark">
                             <th scope="col">S. No.</th>
@@ -111,6 +111,7 @@ export default function ShowUserMaterial() {
                         </tr>
                     })}
                 </table>
+                </div>
                 </div>
             </div>
         </>

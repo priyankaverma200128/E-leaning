@@ -66,6 +66,7 @@ export default function ShowMaterialType() {
             </div>
     <div className=''>
         <div className='container my-4 mt-4'>
+        <div class="table-responsive">
         <table className='table table-striped table-hover'>
             <thead>
             <tr className="table-dark">
@@ -94,6 +95,7 @@ export default function ShowMaterialType() {
                 </tr>
             })}
         </table>
+        </div>
         </div>
             </div>
             </div>

@@ -88,7 +88,8 @@ export default function ShowQuizQuestion() {
      <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
                 <h1>All QuizQuestion</h1>
     </div>
-    <div className='container table-responsive my-4 mt-4'>
+    <div className='container my-4 mt-4'>
+    <div class="table-responsive">
         <table className='table table-striped table-hover'>
             <thead>
             <tr className="table-dark">
@@ -130,6 +131,7 @@ export default function ShowQuizQuestion() {
                 })}
             </tbody>
         </table>
+        </div>
         </div>
     </div>
 

@@ -1,0 +1,8 @@
+.white-icon {
+    color: black !important; /* Set the default color */
+  }
+  
+  .white-icon:hover {
+    color: white !important; /* Change the color on hover */
+  }
+  

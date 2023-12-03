@@ -3,8 +3,7 @@ import Apiservices from '../layout/Apiservices'
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
-import { RingLoader } from "react-spinners"
-
+import { RingLoader } from 'react-spinners';
 export default function ShowMaterial() {
     const nav = useNavigate()
     const [data, setData] = useState([]);
@@ -102,8 +101,7 @@ export default function ShowMaterial() {
 
                                 <td>
 
-                                <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i className="bi bi-trash-fill"></i></button>
-                                    
+                                <button className="btn btn-danger bi bi-trash-fill"  onClick={()=>{deleteData(e?._id)}} ></button>
 
                                 </td>
 

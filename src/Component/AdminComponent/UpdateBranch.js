@@ -9,11 +9,11 @@ import Courses from '../Courses';
 export default function UpdateBranch() {
   const [coursesdata, setCoursesdata] = useState([]);
   const [coursename, setcoursename] = useState('');
-  const [SingleBranchName,setSingleBranchName] = useState('')
+  // const [SingleBranchName,setSingleBranchName] = useState('')
   const params = useParams();
   const branchId = params.branchId
   const courseId = params.courseId
-  console.log(branchId)
+  // console.log(courseId)
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [previousImage,setPreviousImage]=useState("")
@@ -27,7 +27,7 @@ export default function UpdateBranch() {
     () => {
       Apiservices.ShowCourses()
         .then((res) => {
-          console.log(res.data.data);
+          // console.log(res.data.data);
           setCoursesdata(res.data.data);
         })
         .catch((error) => {
@@ -39,13 +39,14 @@ export default function UpdateBranch() {
 
 
   const formSubmit = async (e) => {
+  
     e.preventDefault();
     // console.log(coursename);
     let data = new FormData()
-    data.append("name", SingleBranchName)
     data.append("_id", branchId)
+    data.append("name", name)
     data.append("courseId",courseId)
-
+    console.log("FormData:", data);
     if (!!image) {
       data.append("attachment", image)
     }
@@ -65,7 +66,7 @@ export default function UpdateBranch() {
       }
       Apiservices.SingleCourse(data).then(
         (res)=>{
-          console.log(res.data.data)
+          // console.log(res.data.data)
           setcoursename(res.data?.data?.courseName)
         }
       )
@@ -78,8 +79,8 @@ export default function UpdateBranch() {
       }
       Apiservices.SingleBranch(data)
       .then((res)=>{
-        console.log(res)
-        setSingleBranchName(res.data.data.name)
+        console.log(res.data.data)
+        setName(res.data.data.name)
         setPreviousImage(res.data.data.image)
         
       })
@@ -118,14 +119,14 @@ export default function UpdateBranch() {
             </div>
            
             <form onSubmit={formSubmit}>
-          Name :{' '}
+            Name :
           <input
             type='text'
             className='form-control form-control-lg'
             placeholder='Enter branch name'
             style={{width:"300px"}}
-            value={SingleBranchName}
-            onChange={(e)=>{setSingleBranchName(e.target.value)}}
+            value={name}
+            onChange={(e)=>{setName(e.target.value)}}
           />
           <br />
           <label>Image</label>

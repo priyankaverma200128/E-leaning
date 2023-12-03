@@ -49,14 +49,18 @@ class Apiservices {
         return axios.post(BASE_URL+"admin/branch/add",data,{headers:header1})
     }
     SingleBranch(data){
-        return axios.post(BASE_URL+"admin/branch/single",qs.stringify(data))
+        const token = sessionStorage.getItem("token")
+        const header1={
+            Authorization : token
+        }
+        return axios.post(BASE_URL+"admin/branch/single",qs.stringify(data),{headers:header1})
     }
     UpdateBranch(data){
         const token = sessionStorage.getItem("token")
         const header1={
             Authorization : token
         }
-        return axios.post(BASE_URL+"admin/branch/update",qs.stringify(data), {headers:header1})
+        return axios.post(BASE_URL+"admin/branch/update",data, {headers:header1})
     }
     DeleteBranch(data){
         const token = sessionStorage.getItem("token")

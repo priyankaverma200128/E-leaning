@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import * as qs from 'qs';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import Apiservices from '../layout/Apiservices';
@@ -41,7 +40,7 @@ export default function Login() {
 
 
         } else if (res.data?.success && res.data.data.userType === 2) {
-          setLoad(true)
+          
           setTimeout(() => {
             setLoad(false)
             sessionStorage.setItem("userData", JSON.stringify(res.data.data))

@@ -59,7 +59,7 @@ export default function AdminHeader() {
                 </div>
             
             </div>
-            <button  className="btn btn-primary py-3 px-lg-5 " onClick={logout}>Logout</button>
+            <button  className="btn btn-primary py-3  " onClick={logout}>Logout</button>
         </div>
     </nav>
     </div>

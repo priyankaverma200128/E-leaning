@@ -12,9 +12,11 @@ export default function Register() {
     const [contact, setContact] = useState("");
     const [gender, setGender] = useState("");
     const [address, setAddress] = useState("");
+    const [load,setload] = useState(false);
     const history= useNavigate();
 
     const formSubmit = (e) => {
+        setload(true)
         e.preventDefault()
         console.log("Form Submitted");
         let data = {
@@ -31,18 +33,20 @@ export default function Register() {
                 console.log(res.data)
                 toast.success(res.data?.message)
                 history('/user')
+                setload(false)
             })
             .catch((err) => {
                 toast.err(err.data.message)
+                setload(false)
             })
 
     }
     return (
         <>
         <div className='container my-4 py-3'>
-            <section className="vh-100" style={{ backgroundClip: " #eee" }}>
-                <div className="container h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
+            <section  style={{ backgroundClip: " #eee" }}>
+                <div className="container ">
+                    <div className="row d-flex justify-content-center align-items-center ">
                         <div className="col-lg-12 col-xl-11">
                             <div className="card text-black" style={{ borderRadius: "25px" }}>
                                 <div className="card-body p-md-5">
@@ -98,7 +102,7 @@ export default function Register() {
                                                         
                                                         <label>Gender</label>
                                                         <input type='radio' name='gender' onChange={(e)=>{setGender(e.target.value)}} value="M" checked={gender=="M"}/>Male
-                                                        <input type='radio' name='gender' onChange={(e)=>{setGender(e.target.value)}} value="F" checked={gender=="M"}/>Female
+                                                        <input type='radio' name='gender' onChange={(e)=>{setGender(e.target.value)}} value="F" checked={gender=="F"}/>Female
                                                     </div>
                                                 </div>
 

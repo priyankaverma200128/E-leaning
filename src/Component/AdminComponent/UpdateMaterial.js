@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Apiservices from '../layout/Apiservices';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
+import { RingLoader } from "react-spinners"
 
 export default function UpdateMaterial() {
 
@@ -22,6 +23,14 @@ export default function UpdateMaterial() {
   const [courseId, setCourseId] = useState('');
   const [branchId, setBranchId] = useState('');
   const [materialtypeid, setMaterialtypeId] = useState('');
+  const [load, setLoad] = useState(false)
+  const obj = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    zIndex: 1,
+  }
+  
   const nav = useNavigate()
 
 
@@ -41,6 +50,7 @@ export default function UpdateMaterial() {
  
   //Submitting the updated details from the form
   const formSubmit = (e) => {
+    setLoad(true)
     e.preventDefault();
     let data = new FormData()
     // const data = { material }; // Define the data object here
@@ -56,9 +66,11 @@ export default function UpdateMaterial() {
     Apiservices.UpdateMaterial(data)
       .then((res) => {
         if (res.data.success) {
+          setLoad(true)
           toast.success(res.data.message);
           nav("/admin/showmaterial")
         } else {
+          setLoad(false)
           toast.error(res.data.message);
         }
         // setMaterial(''); // Clear the input field after submission
@@ -180,6 +192,8 @@ export default function UpdateMaterial() {
 
   return (
     <>
+    <RingLoader size={100} loading={load} cssOverride={obj} /> 
+       <div className={load == true ? "disable-screen " : " "}>
       <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
         <h1>Update Material</h1>
       </div>
@@ -259,6 +273,7 @@ export default function UpdateMaterial() {
 
           </td>
         </form>
+      </div>
       </div>
     </>
   );

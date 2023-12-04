@@ -5,16 +5,25 @@ import { toast } from 'react-toastify';
 import Apiservices from "../layout/Apiservices"
 import { Link } from 'react-router-dom';
 import Courses from '../Courses';
+import { RingLoader } from "react-spinners"
 
 export default function UpdateBranch() {
   const [coursesdata, setCoursesdata] = useState([]);
   const [coursename, setcoursename] = useState('');
+  const [load, setLoad] = useState(false)
+  const obj = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    zIndex: 1,
+  }
   // const [SingleBranchName,setSingleBranchName] = useState('')
   const params = useParams();
   const branchId = params.branchId
   const courseId = params.courseId
   // console.log(courseId)
   const [name, setName] = useState('');
+  
   const [image, setImage] = useState('');
   const [previousImage,setPreviousImage]=useState("")
   const changeImage = (e) => {
@@ -39,7 +48,7 @@ export default function UpdateBranch() {
 
 
   const formSubmit = async (e) => {
-  
+    setLoad(true)
     e.preventDefault();
     // console.log(coursename);
     let data = new FormData()
@@ -52,10 +61,12 @@ export default function UpdateBranch() {
     }
     Apiservices.UpdateBranch(data)
       .then((res) => {
+        setLoad(true)
         toast.success(res.data.message)
         nav("/admin/Showbranches")
       })
       .catch((err) => {
+        setLoad(false)
         toast.error(err.message)
       })
   };
@@ -93,6 +104,8 @@ export default function UpdateBranch() {
 
   return (
     <>
+    <RingLoader size={100} loading={load} cssOverride={obj} /> 
+       <div className={load == true ? "disable-screen " : " "}>
       {/* Heading starts here */}
       <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
         <h1>Update Branch</h1>
@@ -144,8 +157,10 @@ export default function UpdateBranch() {
 
 
           </div>
+          </div>
         </div>
       </div>
+      
     </>
   );
 }

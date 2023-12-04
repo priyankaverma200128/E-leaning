@@ -77,7 +77,7 @@ export default function Login() {
                          
             
             </div>
-            <Link to="/login" className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i className="fa fa-arrow-right ms-3"></i></Link>
+            <Link to="/login" className="btn btn-primary py-4 px-lg-5 ">Login<i className="fa fa-arrow-right ms-3"></i></Link>
         </div>
     </nav>
 

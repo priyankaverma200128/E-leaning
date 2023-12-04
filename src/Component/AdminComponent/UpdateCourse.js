@@ -4,11 +4,19 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Apiservices from "../layout/Apiservices"
 import { Link} from 'react-router-dom';
+import { RingLoader } from "react-spinners"
 
 export default function UpdateCourse() {  
 
   const [courseName, setCourseName] = useState('');
   const [image, setImage] = useState('');
+  const [load, setLoad] = useState(false)
+  const obj = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    zIndex: 1,
+  }
   const onChange= (e)=>{
     console.log(e.target.file[0])
     
@@ -26,6 +34,7 @@ const nav = useNavigate();
 
 
   const formSubmit = async (e) => {
+    setLoad(true)
     e.preventDefault();
     // console.log(coursName);
     let data=new FormData()
@@ -35,10 +44,12 @@ const nav = useNavigate();
     
     Apiservices.UpdateCourses(data)
     .then((res)=>{
+      setLoad(true)
       toast.success(res.data.message)
       nav("/admin/showcourses")
     })
     .catch((err)=>{
+      setLoad(false)
       toast.error(err.message)
     })
   };
@@ -60,6 +71,8 @@ const nav = useNavigate();
 
   return (
     <>
+    <RingLoader size={100} loading={load} cssOverride={obj} /> 
+       <div className={load == true ? "disable-screen " : " "}>
       {/* Heading starts here */}
       <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
                 <h1>Update Course</h1>
@@ -81,6 +94,7 @@ const nav = useNavigate();
           <br />
           <button className='btn btn-primary btn-lg my-4 py-2' >Update</button>
         </form>
+      </div>
       </div>
     </>
   );

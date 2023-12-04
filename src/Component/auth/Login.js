@@ -17,6 +17,7 @@ export default function Login() {
     zIndex: 1,
   }
   const handleForm = (e) => {
+    setLoad(true)
     e.preventDefault()
     console.log("Form Submitted")
     let data = {

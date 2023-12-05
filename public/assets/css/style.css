@@ -82,8 +82,8 @@
 
 /* CSS */
 
-/*** Navbar ***/
-.navbar .dropdown-toggle::after {
+/* Navbar */
+ .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
     font-family: "Font Awesome 5 Free";
@@ -438,13 +438,3 @@
     padding-right: 0;
     border-right: none;
 }
-
-.nav-link:hover{
-    color: #0b5ed7;
-  }
-  
-  .navstyle{
-    font-weight: bold;
-    color: #0b5ed7 !important;
-    font-family: Helvetica, Sans-Serif !important;
-  }

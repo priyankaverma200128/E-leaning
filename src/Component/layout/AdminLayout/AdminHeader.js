@@ -32,7 +32,7 @@ export default function AdminHeader() {
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Courses</a>
               <ul className="dropdown-menu">
                 <NavLink onClick={handleNavbarCollapse} to="/admin/showcourses"><a className="nav-item nav-link">Show Course</a></NavLink>
-                <NavLink onClick={handleNavbarCollapse} to="/admin/addcourses"><a className="nav-item nav-link">Add Course</a></Link >
+                <NavLink onClick={handleNavbarCollapse} to="/admin/addcourses"><a className="nav-item nav-link">Add Course</a></NavLink>
               </ul>
                 </div>
                 {/* <NavLink to="/admin/showCourses" className="nav-item nav-link">Courses</NavLink> */}
@@ -40,16 +40,16 @@ export default function AdminHeader() {
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Branches</a>
               <ul className="dropdown-menu">
                 <NavLink onClick={handleNavbarCollapse} to="/admin/showbranches"><a className="nav-item nav-link">Show Branches</a></NavLink>
-                <NavLink onClick={handleNavbarCollapse} to="/admin/addbranches"><a className="nav-item nav-link">Add Branches</a></Link >
+                <NavLink onClick={handleNavbarCollapse} to="/admin/addbranches"><a className="nav-item nav-link">Add Branches</a></NavLink>
               </ul>
                 </div>
                 <div className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MaterialType</a>
               <ul className="dropdown-menu">
                 <NavLink onClick={handleNavbarCollapse} to="/admin/showmaterialtype"><a className="nav-item nav-link">Manage MaterialType</a></NavLink>
-                <NavLink onClick={handleNavbarCollapse} to="/admin/addmaterialtype"><a className="nav-item nav-link">Add MaterialType</a></Link >
+                <NavLink onClick={handleNavbarCollapse} to="/admin/addmaterialtype"><a className="nav-item nav-link">Add MaterialType</a></NavLink>
                 <NavLink to="/admin/showmaterial"><a className="nav-item nav-link">Show Materials</a></NavLink>
-                <NavLink onClick={handleNavbarCollapse} to="/admin/addmaterial"><a className="nav-item nav-link">Add Material</a></Link >
+                <NavLink onClick={handleNavbarCollapse} to="/admin/addmaterial"><a className="nav-item nav-link">Add Material</a></NavLink>
               </ul>
                 </div>
                 
@@ -59,8 +59,8 @@ export default function AdminHeader() {
               <NavLink onClick={handleNavbarCollapse} to="/admin/showquiz"><a className="nav-item nav-link">ShowQuiz</a></NavLink>
               <NavLink onClick={handleNavbarCollapse} to="/admin/addquiz"><a className="nav-item nav-link">AddQuiz</a></NavLink>
                 <NavLink onClick={handleNavbarCollapse} to="/admin/showquizquestion"><a className="nav-item nav-link">QuizQuestion</a></NavLink>
-                <NavLink onClick={handleNavbarCollapse} to="/admin/addquizquestion"><a className="nav-item nav-link">AddQuizQuestion</a></Link >
-                <NavLink onClick={handleNavbarCollapse} to="/admin/playedquiz"><a className="nav-item nav-link">PlayedQuiz</a></Link >
+                <NavLink onClick={handleNavbarCollapse} to="/admin/addquizquestion"><a className="nav-item nav-link">AddQuizQuestion</a></NavLink>
+                <NavLink onClick={handleNavbarCollapse} to="/admin/playedquiz"><a className="nav-item nav-link">PlayedQuiz</a></NavLink>
               </ul>
                 </div>
             

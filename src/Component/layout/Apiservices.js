@@ -2,7 +2,7 @@ import axios from "axios";
 import * as qs from "qs"
 
 // const BASE_URL ="http://localhost:5000/"
-const BASE_URL ="http://e-learning-backend-ek65.onrender.com/"
+const BASE_URL ="https://e-learning-backend-ek65.onrender.com/"
 
 class Apiservices {
     login(data){

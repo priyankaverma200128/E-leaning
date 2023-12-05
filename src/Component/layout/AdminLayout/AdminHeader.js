@@ -15,7 +15,7 @@ export default function AdminHeader() {
     if (navbar.classList.contains('show')) {
       navbar.classList.remove('show');
     }
-  }; onClick={handleNavbarCollapse}
+  }; 
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">

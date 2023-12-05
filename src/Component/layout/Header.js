@@ -1,5 +1,5 @@
 import React from "react";
-import {  NavLink } from "react-router-dom";
+import {  NavLink, useLocation } from "react-router-dom";
 
 export default function Header() {
     const handleNavbarCollapse = () => {
@@ -9,6 +9,7 @@ export default function Header() {
           navbar.classList.remove('show');
         }
       };
+      let location = useLocation();
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">

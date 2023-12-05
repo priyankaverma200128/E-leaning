@@ -20,10 +20,10 @@ export default function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto p-4 p-lg-0">
-                        <NavLink onClick={handleNavbarCollapse} to="/" className="nav-item nav-link active">Home</NavLink>
-                        <NavLink onClick={handleNavbarCollapse} to="about" className="nav-item nav-link">About</NavLink>
-                        <NavLink onClick={handleNavbarCollapse} to="/courses" className="nav-item nav-link">Courses</NavLink>
-                        <NavLink onClick={handleNavbarCollapse} to="/login" className="btn btn-primary pt-2" style={{width:"130px",height:"50px",marginTop:"10px",textAlign:"center"}}>Login</NavLink>
+                        <NavLink onClick={handleNavbarCollapse}  to="/" className={`px-4 mx-2 nav-item nav-link  ${location.pathname === "/"? 'navstyle':''}`} >Home</NavLink>
+                        <NavLink onClick={handleNavbarCollapse}  to="/about" className={`px-4 mx-2 nav-item nav-link  ${location.pathname === "/about"? 'navstyle':''}`}>About</NavLink>
+                        <NavLink onClick={handleNavbarCollapse}  to="/courses" className={`px-4 mx-2 nav-item nav-link  ${location.pathname === "/courses"? 'navstyle':''}`}>Courses</NavLink>
+                        <NavLink onClick={handleNavbarCollapse}  to="/login"className={`px-4 mx-2 nav-item nav-link  ${location.pathname === "/login"? 'navstyle':''}`} style={{width:"130px",height:"50px",marginTop:"10px",textAlign:"center"}}>Login</NavLink>
 
 
                     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function UserHeader() {
@@ -22,35 +22,35 @@ export default function UserHeader() {
     <>
         <nav className="navbar navbar-expand-lg navbar-light bg-white shadow sticky-top p-0">
         <div className="container-fluid">
-          <Link onClick={handleNavbarCollapse} to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
+          <NavLink onClick={handleNavbarCollapse} to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 className="m-0 text-primary"><i className="fa fa-book me-3"></i>eLEARNING</h2>
-          </Link>
+          </NavLink>
           <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav ms-auto p-4 p-lg-0">
               <li className="nav-item">
-                <Link onClick={handleNavbarCollapse} to="/user" className="nav-link">Home</Link>
+                <NavLink onClick={handleNavbarCollapse} to="/user" className="nav-link">Home</NavLink>
               </li>
               <li className="nav-item">
-                <Link onClick={handleNavbarCollapse} to="/user/about" className="nav-link">About</Link>
+                <NavLink onClick={handleNavbarCollapse} to="/user/about" className="nav-link">About</NavLink>
               </li>
               <li className="nav-item">
-                <Link onClick={handleNavbarCollapse} to="/user/courses" className="nav-link">Courses</Link>
+                <NavLink onClick={handleNavbarCollapse} to="/user/courses" className="nav-link">Courses</NavLink>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Material</a>
                 <ul className="dropdown-menu">
-                  <li><Link onClick={handleNavbarCollapse} to="/user/showmaterial" className="dropdown-item">Show Material</Link></li>
-                  <li><Link onClick={handleNavbarCollapse} to="/user/addusermaterial" className="dropdown-item">Add Material</Link></li>
+                  <li><NavLink onClick={handleNavbarCollapse} to="/user/showmaterial" className="dropdown-item">Show Material</NavLink></li>
+                  <li><NavLink onClick={handleNavbarCollapse} to="/user/addusermaterial" className="dropdown-item">Add Material</NavLink></li>
                 </ul>
               </li>
               <li className="nav-item">
-                <Link onClick={handleNavbarCollapse} to="/user/Quiz" className="nav-link">Quiz</Link>
+                <NavLink onClick={handleNavbarCollapse} to="/user/Quiz" className="nav-link">Quiz</NavLink>
               </li>
               <li className="nav-item">
-                <Link onClick={handleNavbarCollapse} to="/user/playedquiz" className="nav-link">PlayedQuiz</Link>
+                <NavLink onClick={handleNavbarCollapse} to="/user/playedquiz" className="nav-link">PlayedQuiz</NavLink>
               </li>
               {/* <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

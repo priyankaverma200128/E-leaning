@@ -2,6 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+    const handleNavbarCollapse = () => {
+        // Close the navbar collapse when a navigation link is clicked
+        const navbar = document.querySelector('.navbar-collapse');
+        if (navbar.classList.contains('show')) {
+          navbar.classList.remove('show');
+        }
+      };
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
@@ -13,10 +20,10 @@ export default function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto p-4 p-lg-0">
-                        <Link to="/" className="nav-item nav-link active">Home</Link>
-                        <Link to="about" className="nav-item nav-link">About</Link>
-                        <Link to="/courses" className="nav-item nav-link">Courses</Link>
-                        <Link to="/login" className="btn btn-primary pt-2" style={{width:"130px",height:"50px",marginTop:"10px",textAlign:"center"}}>Login</Link>
+                        <Link onClick={handleNavbarCollapse} to="/" className="nav-item nav-link active">Home</Link>
+                        <Link onClick={handleNavbarCollapse} to="about" className="nav-item nav-link">About</Link>
+                        <Link onClick={handleNavbarCollapse} to="/courses" className="nav-item nav-link">Courses</Link>
+                        <Link onClick={handleNavbarCollapse} to="/login" className="btn btn-primary pt-2" style={{width:"130px",height:"50px",marginTop:"10px",textAlign:"center"}}>Login</Link>
 
 
                     </div>

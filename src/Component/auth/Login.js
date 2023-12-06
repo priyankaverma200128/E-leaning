@@ -34,7 +34,7 @@ export default function Login() {
             sessionStorage.setItem("token", res.data.token)
             sessionStorage.setItem("userData", JSON.stringify(res.data.data))
             history('/admin')
-            toast.success(res.data.message)
+            toast.success(res.data?.message)
           }, 2000);
 
 
@@ -46,16 +46,16 @@ export default function Login() {
             sessionStorage.setItem("userData", JSON.stringify(res.data.data))
             sessionStorage.setItem("token", res.data.token)
             history('/user')
-            toast.success(res.data.message ? res.data.message : "User logged in successfully")
+            toast.success(res.data?.message ? res.data?.message : "User logged in successfully")
           }, 2000);
         }
         else {
-          toast.warn(res.data.message)
+          toast.warn(res.data?.message)
         }
 
       })
       .catch((err) => {
-        toast.error(err.data.message)
+        toast.error(err.data?.message)
       })
   }
   return (

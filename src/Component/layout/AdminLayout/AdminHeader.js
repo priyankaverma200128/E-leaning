@@ -48,7 +48,7 @@ export default function AdminHeader() {
               <ul className="dropdown-menu">
                 <Link onClick={handleNavbarCollapse} to="/admin/showmaterialtype"><a className="nav-item nav-link">Manage MaterialType</a></Link>
                 <Link onClick={handleNavbarCollapse} to="/admin/addmaterialtype"><a className="nav-item nav-link">Add MaterialType</a></Link >
-                <Link to="/admin/showmaterial"><a className="nav-item nav-link">Show Materials</a></Link>
+                <Link  onClick={handleNavbarCollapse} to="/admin/showmaterial"><a className="nav-item nav-link">Show Materials</a></Link>
                 <Link onClick={handleNavbarCollapse} to="/admin/addmaterial"><a className="nav-item nav-link">Add Material</a></Link >
               </ul>
                 </div>

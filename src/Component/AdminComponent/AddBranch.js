@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Apiservices from "../layout/Apiservices"
 import { toast } from "react-toastify"
 import { useNavigate, useParams } from 'react-router-dom';
+import { RingLoader } from "react-spinners"
+
 
 
 export default function AddBranch() {
@@ -10,6 +12,13 @@ export default function AddBranch() {
     
     const [name, setName] = useState('');
   const [image, setImage] = useState('');
+  const [load, setLoad] = useState(false)
+  const obj = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    zIndex: 1,
+  }
   const changeImage = (e) => {
     console.log(e.target.files[0])
     setImage(e.target.files[0])
@@ -34,6 +43,7 @@ export default function AddBranch() {
         setCourseId(e.target.value);
     }
     const formSubmit = (e)=>{
+      setLoad(true)
         e.preventDefault();
         let data = new FormData()
         data.append("name", name)
@@ -44,10 +54,12 @@ export default function AddBranch() {
           }
           Apiservices.AddBranch(data)
             .then((res) => {
+              setLoad(false)
               toast.success(res.data.message)
               // nav("/admin/Showbranches")
             })
             .catch((err) => {
+              setLoad(false)
               toast.error(err.message)
             })
         };
@@ -56,6 +68,8 @@ export default function AddBranch() {
     
   return (
     <>
+    <RingLoader size={100} loading={load} cssOverride={obj} /> 
+       <div className={load == true ? "disable-screen " : " "}>
     {/* Heading starts here */}
     <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
         <h1>Add Branch</h1>
@@ -86,10 +100,11 @@ export default function AddBranch() {
             style={{width:"300px"}}
             value={name}
             onChange={(e)=>{setName(e.target.value)}}
+            required
           />
           <br />
           <label>Image</label>
-              <input type="file" onChange={changeImage} />
+              <input type="file" onChange={changeImage} required/>
           <br />
          
           <td>
@@ -98,6 +113,7 @@ export default function AddBranch() {
              
             </td>
         </form>
+        </div>
         </div>
     </>
   )

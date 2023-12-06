@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Apiservices from '../layout/Apiservices';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { RingLoader } from "react-spinners"
 
 export default function AddMaterial() {
   const [material, setMaterial] = useState('');
@@ -15,6 +16,13 @@ export default function AddMaterial() {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const [selectedMaterialType, setSelectedMaterialType] = useState('');
+  const [load, setLoad] = useState(false)
+  const obj = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    zIndex: 1,
+  }
 
 
   console.log(selectedMaterialType)
@@ -79,6 +87,7 @@ export default function AddMaterial() {
 
 
   const formSubmit = (e) => {
+    setLoad(true)
     e.preventDefault();
     let data = new FormData()
     // const data = { material }; // Define the data object here
@@ -92,20 +101,25 @@ export default function AddMaterial() {
     Apiservices.AddMaterial(data)
       .then((res) => {
         if (res.data.success) {
+          setLoad(false)
           toast.success(res.data.message);
           // nav("/admin/showmaterial")
         } else {
+          setLoad(false)
           toast.error(res.data.message);
         }
         // setMaterial(''); // Clear the input field after submission
       })
       .catch((err) => {
+        setLoad(false)
         toast.error('Something went wrong!!');
       });
   }
 
   return (
     <>
+    <RingLoader size={100} loading={load} cssOverride={obj} />
+      <div className={load == true ? "disable-screen " : " "}>
       <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
         <h1>Add Material</h1>
       </div>
@@ -161,6 +175,7 @@ export default function AddMaterial() {
             style={{ width: "300px" }}
             value={title}
             onChange={(e) => { setTitle(e.target.value) }}
+            required
           />
           <br />
           Description :{' '}
@@ -171,6 +186,7 @@ export default function AddMaterial() {
             style={{ width: "300px" }}
             value={description}
             onChange={(e) => { setDescription(e.target.value) }}
+            required
           />
           <br />
           <label>Upload File</label>
@@ -186,7 +202,7 @@ export default function AddMaterial() {
                     ? "video/*"
                     : ""
             }
-          />
+          required/>
           <br />
 
           <td>
@@ -195,6 +211,7 @@ export default function AddMaterial() {
 
           </td>
         </form>
+      </div>
       </div>
     </>
   );

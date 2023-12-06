@@ -8,7 +8,6 @@ import { RingLoader } from "react-spinners"
 
 export default function ShowBranches() {
     const nav = useNavigate()
-    const [isBtn, setIsBtn] = useState(false)
     const [load, setload] = useState(true)
     const obj = {
         position: "absolute",
@@ -41,7 +40,7 @@ export default function ShowBranches() {
         }, [load]
     )
     const deleteData=(id)=>{
-        setIsBtn(true)
+        setload(true)
         let data={
             _id:id
         }
@@ -49,11 +48,12 @@ export default function ShowBranches() {
             (res)=>{
                 toast.success(res.data.message)
                 nav("/admin/showbranches")
+                setload(false)
             }
         ).catch(
             (err)=>{
                 toast.error("Something went Wrong")
-                setIsBtn(false)
+                setload(false)
             }
         )
     }
@@ -90,10 +90,8 @@ export default function ShowBranches() {
                                 /></td>
 
                                 <td>
-                                    <Link to={"/admin/deleteBranch/" +e?._id}>
                                     <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i className="bi bi-trash-fill"></i></button>
-                                    </Link>
-                                    </td>
+                                </td>
                                 
                                 <td>
 

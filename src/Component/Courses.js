@@ -60,7 +60,7 @@ useEffect(
                             </div>
                         </div>
                         <div className="text-center p-4 pb-0">
-                            <h1 className="mb-4">{e?.courseName}</h1>
+                            <h1 className="card-title">{e?.courseName}</h1>
                         </div>
                     </div>
                 </div>

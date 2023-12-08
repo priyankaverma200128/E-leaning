@@ -89,7 +89,7 @@ export default function ShowUserMaterial() {
                             <td>{e?.courseid?.courseName}</td>
                             <td>{e?.title}</td>
                             <td>{e?.description}</td>
-                            <td><Link to={`http://localhost:5000/${e?.attachment}`}  style={{ height: "200px", width: "200px" }} >
+                            <td><Link to={e?.signedUrl}  style={{ height: "200px", width: "200px" }} >
                                 View
                                 </Link>
                             </td>
@@ -101,7 +101,7 @@ export default function ShowUserMaterial() {
 
                             
                             <td>
-                            <Link to={"/user/UpdateMaterial/" + e?._id}>
+                            <Link to={"/user/UpdateMaterial/" + e?._id + "/" + e?.courseid?._id + "/" + e?.branchid?._id + "/" + e?.materialtypeid?._id}>
                                 <button className="btn btn-lg  btn-outline-success " ><i className="bi bi-pencil-square"></i></button>
                             </Link>
                             </td>

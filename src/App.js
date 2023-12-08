@@ -105,7 +105,7 @@ function App() {
       <Route path='/user/about' element={<About/>}/>
       <Route path='/user/branches/:id' element={<Branches/>}/>
       <Route path='/user/showmaterial' element={<ShowUserMaterial/>}/>
-      <Route path='/user/updatematerial/:MaterialId' element={<UserUpdateMaterial/>}/>
+      <Route path='/user/updatematerial/:MaterialId/:courseId/:branchId/:materialtypeId' element={<UserUpdateMaterial/>}/>
       <Route path='/user/quiz' element={<Quiz/>}/>
       <Route path="/user/quizquestion/:id" element={<QuizQuestion2/>} />
       <Route path="/user/playedquiz" element={<PlayedUser/>} />

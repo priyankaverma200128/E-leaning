@@ -4,22 +4,18 @@ import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 import { RingLoader } from "react-spinners"
 
-export default function UserUpdateMaterial() {
+export default function UpdateMaterial() {
 
   //All useStates are intialized here
-  const [ SingleMaterial,setSinglematerial] = useState('');
   const [coursesdata, setCoursesdata] = useState([]);
   const [branch, setBranch] = useState([]);
-  const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [ materialtype, setMaterialtype] = useState([])
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
-  const [previousImage,setPreviousImage]=useState("")
   const [branchname,setbranchname]= useState('')
   const [coursename, setcoursename] = useState('');
   const [materialtypeName,setmaterialtypeName] = useState('');
-  const [SingleBranchName,setSingleBranchName] = useState('')
   const [courseId, setCourseId] = useState('');
   const [branchId, setBranchId] = useState('');
   const [materialtypeid, setMaterialtypeId] = useState('');
@@ -37,7 +33,11 @@ export default function UserUpdateMaterial() {
   //Ids are getting from the url
   const params = useParams();
   const materialId = params.MaterialId
-  
+  const singleCourseId = params.courseId
+  const singleBranchId = params.branchId
+  const singlematerialTypeId = params.materialtypeId
+  const singleMaterialID = params.MaterialId
+ console.log(singleCourseId,singleBranchId,singlematerialTypeId,singleMaterialID)  
 
 
   const changeImage = (e) => {
@@ -45,8 +45,77 @@ export default function UserUpdateMaterial() {
     setImage(e.target.files[0])
 
   }
+   
+  //Showing single course name as on load 
+  useEffect(
+    ()=>{
+      if(singleCourseId){
+        const data = {
+          _id: singleCourseId
+        }
+        Apiservices.SingleCourse(data).then(
+          (res)=>{
+            console.log("single course data is :" + res.data.data?.courseName)
+            setcoursename(res.data?.data?.courseName)
 
- 
+          }
+        )
+      }
+    },[]
+  )
+  //Showing  material data as on load 
+  useEffect(
+    ()=>{
+      if(singleMaterialID){
+        const data = {
+          _id: singleMaterialID
+        }
+        Apiservices.SingleMaterial(data).then(
+          (res)=>{
+            console.log(res.data.data)
+            setTitle(res.data?.data?.title)
+            setDescription(res.data?.data.description)
+          }
+        )
+      }
+    },[]
+  )
+    
+  //Showing single branch name as on load 
+  useEffect(
+    ()=>{
+      if(singleBranchId){
+        const data = {
+          _id: singleBranchId
+        }
+        Apiservices.SingleBranch(data).then(
+          (res)=>{
+            console.log("single branch data is :" + res.data.data)
+            setbranchname(res.data?.data?.name)
+
+          }
+        )
+      }
+    },[]
+  )
+  //Showing single material name as on load 
+  useEffect(
+    ()=>{
+      if(singlematerialTypeId){
+        const data = {
+          _id: singlematerialTypeId
+
+        }
+        Apiservices.SingleMaterialtype(data).then(
+          (res)=>{
+            console.log("single material type data is :" + res.data?.data)
+            setmaterialtypeName(res.data?.data?.materialtypeName)
+
+          }
+        )
+      }
+    },[]
+  )
  
   //Submitting the updated details from the form
   const formSubmit = (e) => {
@@ -54,7 +123,7 @@ export default function UserUpdateMaterial() {
     e.preventDefault();
     let data = new FormData()
     // const data = { material }; // Define the data object here
-    data.append("name", SingleBranchName)
+    // data.append("name", SingleBranchName)
     data.append("courseid", courseId)
     data.append("branchid", branchId)
     data.append("materialtypeid",materialtypeid)
@@ -66,7 +135,7 @@ export default function UserUpdateMaterial() {
     Apiservices.UpdateMaterial(data)
       .then((res) => {
         if (res.data.success) {
-          setLoad(true)
+          setLoad(false)
           toast.success(res.data.message);
           nav("/admin/showmaterial")
         } else {
@@ -80,45 +149,30 @@ export default function UserUpdateMaterial() {
       });
   }
 
-  //Getting material details and setting it
-  useEffect(
-    ()=>{
-      const data={
-        _id:materialId
-      }
-      Apiservices.SingleMaterial(data)
-      .then((res)=>{
-        // console.log(res)
-        setSinglematerial(res.data.data.name)
-        setPreviousImage(res.data.data.image)
-        setTitle(res.data.data.title)
-        setDescription(res.data.data.description)
-        setBranchId(res.data.data.branchid)
-        setCourseId(res.data.data.courseid)
-        setMaterialtypeId(res.data.data.materialtypeid)
-      })
-      .catch((err)=>{
-        toast.error(err.message)
-      })
-    },[]
-  )
+  const showCourses = ()=>{
+    Apiservices.ShowCourses()
+    .then((res) => {
+      console.log(res.data.data);
+      setCoursesdata(res.data.data);
+    })
+    .catch((error) => {
+      console.log("Error fetching courses:", error);
+    })
+  }
+
   useEffect(
     () => {
-      Apiservices.ShowCourses()
-        .then((res) => {
-          console.log(res.data.data);
-          setCoursesdata(res.data.data);
-        })
-        .catch((error) => {
-          console.log("Error fetching courses:", error);
-        })
+     showCourses();
     }, []
   )
   useEffect(
     () => {
-      const data = {
-        courseId: courseId
-      }
+      if(courseId){
+        const data = {
+          courseId: courseId
+        }
+        
+      
       Apiservices.ShowBranches(data)
         .then((res) => {
           console.log(res.data.data);
@@ -128,50 +182,44 @@ export default function UserUpdateMaterial() {
         .catch((error) => {
           console.log("Error fetching courses:", error);
         })
+      }
     }, [courseId]
   )
   useEffect(
     () => {
-      const data = {
-        branchId: branchId
-      }
+      if(branchId){
+        const data = {
+          branchId: branchId
+        }
+      
       Apiservices.ShowMaterialType(data)
         .then((res) => {
           console.log(res.data.data);
           // toast.success(res.data?.message)
           setMaterialtype(res.data.data);
         })
-    }, []
+      }
+    }, [branchId]
   )
   //Getting material type name and setting it
   useEffect(
     ()=>{
-      const data ={
-        _id:materialtypeid
-      }
+      if(materialtypeid){
+        const data ={
+          _id:materialtypeid
+        }
+      
       Apiservices.SingleMaterialtype(data).then(
         (res)=>{
           // console.log(res.data?.data?.materialtypeName ) 
           setmaterialtypeName(res.data?.data?.materialtypeName)
         }
       )
-    },[]
+      }
+    },[materialtypeid]
   )
 
   
-  useEffect(
-    ()=>{
-      const data ={
-        _id:courseId
-      }
-      Apiservices.SingleCourse(data).then(
-        (res)=>{
-          console.log(res.data.data)
-          setcoursename(res.data?.data?.courseName)
-        }
-      )
-    },[]
-  )
 
   return (
     <>
@@ -187,7 +235,7 @@ export default function UserUpdateMaterial() {
 
             <div className="form-outline">
               <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value={courseId} onChange={(e)=>{setCourseId(e.target.value)}} >
-                <option defaultValue="Category">Select your Course</option>
+              <option value="" selected disabled>{coursename}</option>
                 {coursesdata?.map((e, index) => {
                   return <option value={e._id} key={index} >{e.courseName}</option>
 
@@ -202,7 +250,7 @@ export default function UserUpdateMaterial() {
             <div className="form-outline">
               <h3 className="mb-4 pb-2 pb-md-0 mb-md-4">Select Branches</h3>
               <select required className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value={branchId} onChange={(e)=>{setBranchId(e.target.value)}}>
-                <option value="" selected disabled>Select Branch</option>
+                <option value="" selected disabled>{branchname}</option>
                 {branch?.map((e, index) => {
                 return <option value={e?._id} key={index} >{e?.name}</option>
 

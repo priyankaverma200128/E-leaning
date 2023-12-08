@@ -125,6 +125,7 @@ export default function Master() {
                   <div className="card">
                     <div className="card-header">
                       <h5 className="card-title">{e?.title}</h5>
+                      <p className='card-text'style={{maxHeight:"70px",minHeight:"70px"}}>{e?.description}</p>
                     </div>
                     <div className="card-body">
                       <div className="position-relative overflow-hidden">
@@ -157,11 +158,12 @@ export default function Master() {
                           <img
                             src={e?.signedUrl}
                             alt="Material"
-                            style={{ height: '200px', width: '200px' }}
+                            style={{height:"300px",width:"300px"}}
                           />
                         ) : (
                           ''
                         )}
+                        <Link to={"/user/branches/"+e?._id}  className="flex-shrink-0 btn btn-sm btn-primary px-3" style={{"border-radius": "0 30px 30px 0"}}>Show Branches</Link>
                       </div>
                     </div>
                   </div>

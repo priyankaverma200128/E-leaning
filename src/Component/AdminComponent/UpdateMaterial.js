@@ -7,19 +7,15 @@ import { RingLoader } from "react-spinners"
 export default function UpdateMaterial() {
 
   //All useStates are intialized here
-  const [ SingleMaterial,setSinglematerial] = useState('');
   const [coursesdata, setCoursesdata] = useState([]);
   const [branch, setBranch] = useState([]);
-  const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [ materialtype, setMaterialtype] = useState([])
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
-  const [previousImage,setPreviousImage]=useState("")
   const [branchname,setbranchname]= useState('')
   const [coursename, setcoursename] = useState('');
   const [materialtypeName,setmaterialtypeName] = useState('');
-  const [SingleBranchName,setSingleBranchName] = useState('')
   const [courseId, setCourseId] = useState('');
   const [branchId, setBranchId] = useState('');
   const [materialtypeid, setMaterialtypeId] = useState('');
@@ -41,7 +37,7 @@ export default function UpdateMaterial() {
   const singleBranchId = params.branchId
   const singlematerialTypeId = params.materialtypeId
   const singleMaterialID = params.MaterialId
- console.log("single materila id  is"+singleMaterialID)  
+ console.log(singleCourseId,singleBranchId,singlematerialTypeId,singleMaterialID)  
 
 
   const changeImage = (e) => {
@@ -139,7 +135,7 @@ export default function UpdateMaterial() {
     Apiservices.UpdateMaterial(data)
       .then((res) => {
         if (res.data.success) {
-          setLoad(true)
+          setLoad(false)
           toast.success(res.data.message);
           nav("/admin/showmaterial")
         } else {

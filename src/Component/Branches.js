@@ -58,7 +58,7 @@ useEffect(
         <div className="container-fluid">
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 className="section-title bg-white text-center text-primary px-3">Courses</h6>
-                <h1 className="mb-5"style={{ fontWeight: "bold", fontSize: "100px" }}>Course's Branches</h1>
+                <h1 className="mb-5"style={{ fontWeight: "bold", fontSize: "80px" }}>Course's Branches</h1>
             </div>
             <div  className="row g-4 justify-content-center">
            {data?.map((e,index)=>{

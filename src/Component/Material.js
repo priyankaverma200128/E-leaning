@@ -78,8 +78,8 @@ export default function Master() {
           style={{ paddingLeft: "200px", justifyContent: "center" }}
         >
           <h3
-            className="mb-4 pb-2 pb-md-0 mb-md-4"
-            style={{ paddingLeft: "20px",fontWeight: "bold",fontSize: "40px"}}
+            className="mb-4 pb-2 pb-md-0 mb-md-4 justify-content-center "
+            style={{ paddingLeft: "20px",fontWeight: "bold",fontSize: "30px",justifyContent: "center" }}
           >
             Select MaterialType
           </h3>
@@ -111,7 +111,7 @@ export default function Master() {
             <h6 className="section-title bg-white text-center text-primary px-3">
               Material
             </h6>
-            <h1 className="mb-5"style={{ fontWeight: "bold", fontSize: "70px" }}>All Materials</h1>
+            <h1 className="mb-5"style={{ fontWeight: "bold", fontSize: "50px" }}>All Materials</h1>
           </div>
           <div className="row g-4 justify-content-center">
             {data?.map((e, index) => (

@@ -137,7 +137,7 @@ export default function UpdateMaterial() {
         if (res.data.success) {
           setLoad(false)
           toast.success(res.data.message);
-          nav("/admin/showmaterial")
+          nav("/user/showmaterial")
         } else {
           setLoad(false)
           toast.error(res.data.message);

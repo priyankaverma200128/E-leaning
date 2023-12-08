@@ -71,14 +71,14 @@ export default function ShowUserMaterial() {
           
             <div className='container my-4 mt-4'>
             <div class="table-responsive">
-                <table className='table table-striped table-hover '>
+                <table className='table table-striped table-hover table-bordered'>
                     <thead>
                         <tr className="table-dark">
                             <th scope="col">S. No.</th>
                             <th scope="col">Course Name</th>
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
-                            <th scope='col'>Image</th>
+                            <th scope='col'>View</th>
                             <th scope='col'>Delete</th>       
                             <th scope="col">Edit</th>
                         </tr>
@@ -90,19 +90,19 @@ export default function ShowUserMaterial() {
                             <td>{e?.title}</td>
                             <td>{e?.description}</td>
                             <td><Link to={e?.signedUrl}  style={{ height: "200px", width: "200px" }} >
-                                View
+                            <i className='bi bi-eye' ></i>
                                 </Link>
                             </td>
                             <td>
-                                <Link to={"/admin/deleteMaterial/"+e?._id}>
-                                <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i className="bi bi-trash-fill"></i></button>
+                                <Link to={"/user/deleteMaterial/"+e?._id}>
+                                <i className="btn btn-lg text-danger bi bi-trash-fill fa-2x" style={{ fontWeight: 'bold',fontSize: "40px",alignItems:'start',justifyContent:'start' }} onClick={()=>{deleteData(e?._id)}} ></i>
                                 </Link>
                             </td>
 
                             
                             <td>
                             <Link to={"/user/UpdateMaterial/" + e?._id + "/" + e?.courseid?._id + "/" + e?.branchid?._id + "/" + e?.materialtypeid?._id}>
-                                <button className="btn btn-lg  btn-outline-success " ><i className="bi bi-pencil-square"></i></button>
+                            <i  className="fa fa-edit text-success fa-2x" style={{'alignItems':'start','justifyContent':'start'}}></i>
                             </Link>
                             </td>
                             

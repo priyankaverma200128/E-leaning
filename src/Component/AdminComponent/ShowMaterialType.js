@@ -67,7 +67,7 @@ export default function ShowMaterialType() {
     <div className=''>
         <div className='container my-4 mt-4'>
         <div class="table-responsive">
-        <table className='table table-striped table-hover'>
+        <table className='table table-striped table-hover table-bordered'>
             <thead>
             <tr className="table-dark">
                             <th scope="col">S. No.</th>
@@ -82,14 +82,14 @@ export default function ShowMaterialType() {
                     <td>{ e?.materialtypeName}</td>
                     <td>
                                     <Link to={"/admin/deleteMaterialtype/" +e?._id}>
-                                    <button className="btn btn-lg btn-outline-danger" onClick={()=>{deleteData(e?._id)}} ><i className="bi bi-trash-fill"></i></button>
+                                    <i className="btn btn-lg text-danger bi bi-trash-fill fa-2x" style={{ fontWeight: 'bold',fontSize: "40px",alignItems:'start',justifyContent:'start' }} onClick={()=>{deleteData(e?._id)}} ></i>
                                     </Link>
                     </td>
                                 
                                 
                     <td>
                             <Link to={"/admin/UpdateMaterialtype/" + e?._id}>
-                                <button className="btn btn-lg  btn-outline-success " ><i className="bi bi-pencil-square"></i></button>
+                            <i  className="fa fa-edit text-success fa-2x" style={{'alignItems':'start','justifyContent':'start'}}></i>
                             </Link>
                             </td>
                 </tr>

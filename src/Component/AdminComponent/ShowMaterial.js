@@ -72,7 +72,7 @@ export default function ShowMaterial() {
                 <div className='container my-4 mt-4'>
                 <div class="table-responsive">
 
-                    <table className='table table-striped table-hover'>
+                    <table className='table table-striped table-hover table-bordered'>
                         <thead>
                             <tr className="table-dark">
                                 <th scope="col">S. No.</th>
@@ -80,7 +80,7 @@ export default function ShowMaterial() {
                                 <th scope='col'>Branch Name</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
-                                <th scope='col'>Image</th>
+                                <th scope='col'>View</th>
                                 <th scope="col">Delete</th>
                                 <th scope="col">Edit</th>
                             </tr>
@@ -94,20 +94,20 @@ export default function ShowMaterial() {
                                 <td>{e?.description}</td>
                                 <td>
                                     <Link to={e?.signedUrl} target='_blank' style={{ width: "200px", height: "200px" }} >
-                                        View
+                                    <i className='bi bi-eye' ></i>
                                     </Link>
                                 </td>
 
 
                                 <td>
 
-                                <button className="btn btn-danger bi bi-trash-fill"  onClick={()=>{deleteData(e?._id)}} ></button>
+                                <i className="btn btn-lg text-danger bi bi-trash-fill " style={{ fontWeight: 'bold',fontSize: "40px",alignItems:'start',justifyContent:'start' }}onClick={()=>{deleteData(e?._id)}} ></i>
 
                                 </td>
 
                                 <td>
                                     <Link to={"/admin/UpdateMaterial/" + e?._id + "/" + e?.courseid?._id + "/" + e?.branchid?._id + "/" + e?.materialtypeid?._id}>
-                                        <button className="btn btn-lg  btn-outline-success " ><i className="bi bi-pencil-square"></i></button>
+                                    <i  className="fa fa-edit text-success fa-2x" style={{'alignItems':'start','justifyContent':'start'}}></i>
                                     </Link>
                                 </td>
 

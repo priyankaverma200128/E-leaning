@@ -79,7 +79,7 @@ export default function Master() {
         >
           <h3
             className="mb-4 pb-2 pb-md-0 mb-md-4"
-            style={{ paddingLeft: "20px" }}
+            style={{ paddingLeft: "20px",fontWeight: "bold",fontSize: "40px"}}
           >
             Select MaterialType
           </h3>
@@ -89,7 +89,7 @@ export default function Master() {
             value={selectedmaterialtypename}
             onChange={handlemtname}
             aria-label=".form-select-lg example"
-            style={{ width: "200px" }}
+            style={{ width: "200px",fontWeight: "bold",fontSize: "20px" }}
           >
             <option value="" selected disabled>
               Select materialtype
@@ -111,7 +111,7 @@ export default function Master() {
             <h6 className="section-title bg-white text-center text-primary px-3">
               Material
             </h6>
-            <h1 className="mb-5">All Materials</h1>
+            <h1 className="mb-5"style={{ fontWeight: "bold", fontSize: "70px" }}>All Materials</h1>
           </div>
           <div className="row g-4 justify-content-center">
             {data?.map((e, index) => (
@@ -163,7 +163,7 @@ export default function Master() {
                         ) : (
                           ''
                         )}
-                        <Link to={"/user/branches/"+e?._id}  className="flex-shrink-0 btn btn-sm btn-primary px-3" style={{"border-radius": "0 30px 30px 0"}}>Show Branches</Link>
+                        
                       </div>
                     </div>
                   </div>

@@ -6,10 +6,14 @@ export default function UserHeader() {
   const nav = useNavigate();
 
   const logout = () => {
-    sessionStorage.clear();
-    toast.success('Logged out successfully');
-    nav('/login');
-  };
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+
+    if (confirmLogout) {
+      toast.success("Logout successful");
+      nav("/login");
+    } else {
+    }
+  }
   const handleNavbarCollapse = () => {
     // Close the navbar collapse when a navigation link is clicked
     const navbar = document.querySelector('.navbar-collapse');

@@ -56,7 +56,7 @@ if(!token|| token=="null"|| token==null){
                         <ol className="breadcrumb justify-content-center">
                          
                             
-                            <li className="breadcrumb-item"><Link to="/user/quizquestion">Quiz Questions</Link></li>
+                            {/* <li className="breadcrumb-item"><Link to="/user/quizquestion">Quiz Questions</Link></li> */}
                             <li className="breadcrumb-item"><Link to="/user/playedquiz">PlayedQuiz</Link></li>
 
                         </ol>
@@ -79,11 +79,12 @@ if(!token|| token=="null"|| token==null){
            {data?.map((e,index)=>{
               return (
                 <div key={index} className="col-lg-4 wow fadeInUp my-4 " data-wow-delay="0.1s">
+                    <Link to={"/user/quizquestion/"+e?._id}>
                     <div className="course-item bg-light">
                         <div className="position-relative overflow-hidden">
                             <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJNfOEexeVFbQ4nRMmk7whlVS6n_PoGnNutw&usqp=CAU"} style={{width:"500px"}} className="img-fluid"  alt=""/>
                             <div className="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <Link to={"/user/quizquestion/"+e?._id}  className="flex-shrink-0 btn btn-sm btn-primary px-3" style={{"border-radius": "0 30px 30px 0"}}>Show quizquestion</Link>
+                                {/* <Link to={"/user/quizquestion/"+e?._id}  className="flex-shrink-0 btn btn-sm btn-primary px-3" style={{"border-radius": "0 30px 30px 0"}}>Show quizquestion</Link> */}
                             </div>
                         </div>
                         <div className="text-center p-4 pb-0">
@@ -93,6 +94,7 @@ if(!token|| token=="null"|| token==null){
                         </div>
                         
                     </div>
+                    </Link>
                 </div>
               )
             })

@@ -1,10 +1,31 @@
 /********** Template CSS **********/
 :root {
     --primary: #06BBCC;
-    --light: #F0FBFC;
+    --light: #d5e0e1;
     --dark: #181d38;
 }
-
+body {
+    /* Set background image */
+    background-image: url('../img/white.jpg');
+    
+    /* Set background color with transparency */
+    background-color: rgba(255, 255, 255, 0.1); /* Adjust the alpha value (0.0 to 1.0) for transparency */
+  
+    /* Ensure the background image covers the entire viewport */
+    background-size: cover;
+    
+    /* Center the background image */
+    background-position: center;
+    
+    /* Fix the background image while scrolling */
+    background-attachment: fixed;
+  
+    /* Prevent background image from repeating */
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+    /* filter: blur(10px); */
+  }
+  
 .fw-medium {
     font-weight: 600 !important;
 }

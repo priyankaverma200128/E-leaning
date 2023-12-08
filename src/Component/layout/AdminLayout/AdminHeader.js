@@ -5,9 +5,14 @@ import { toast } from 'react-toastify'
 const token = sessionStorage.getItem("token")
 export default function AdminHeader() {
   const nav= useNavigate()
-  const logout =()=>{
-    toast.success("logout successfully")  
-    nav("/login")
+  const logout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+
+    if (confirmLogout) {
+      toast.success("Logout successful");
+      nav("/login");
+    } else {
+    }
   }
   const handleNavbarCollapse = () => {
     // Close the navbar collapse when a navigation link is clicked

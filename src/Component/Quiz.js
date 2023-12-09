@@ -82,7 +82,7 @@ if(!token|| token=="null"|| token==null){
                     <Link to={"/user/quizquestion/"+e?._id}>
                     <div className="course-item bg-light">
                         <div className="position-relative overflow-hidden">
-                            <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJNfOEexeVFbQ4nRMmk7whlVS6n_PoGnNutw&usqp=CAU"} style={{width:"500px"}} className="img-fluid"  alt=""/>
+                            <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJNfOEexeVFbQ4nRMmk7whlVS6n_PoGnNutw&usqp=CAU"} style={{width:"500px",border: "2px solid #4f93b3",borderRadius: "10px"}} className="img-fluid"  alt=""/>
                             <div className="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                 {/* <Link to={"/user/quizquestion/"+e?._id}  className="flex-shrink-0 btn btn-sm btn-primary px-3" style={{"border-radius": "0 30px 30px 0"}}>Show quizquestion</Link> */}
                             </div>
@@ -90,7 +90,7 @@ if(!token|| token=="null"|| token==null){
                         <div className="text-center p-4 pb-0">
                             
                             
-                            <h1 className="mb-4">{e?.title}</h1>
+                            <h1 className="mb-4"style={{color:"#070808"}}>{e?.title}</h1>
                         </div>
                         
                     </div>

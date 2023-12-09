@@ -11,10 +11,10 @@ export default function Login() {
   const [load, setLoad] = useState(false)
   const obj = {
     position: "absolute",
-    top: "50%",
+    top: "30%",
     left: "50%",
     zIndex: 1,
-  }
+}
   const handleForm = (e) => {
     setLoad(true)
     e.preventDefault()
@@ -62,7 +62,7 @@ export default function Login() {
     <>
       { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
             <div className={load == true ? "disable-screen" : " "}>
-            <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 className="m-0 text-primary"><i className="fa fa-book me-3"></i>eLEARNING</h2>
         </a>

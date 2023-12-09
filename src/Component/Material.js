@@ -158,7 +158,7 @@ export default function Master() {
                           <img
                             src={e?.signedUrl}
                             alt="Material"
-                            style={{height:"300px",width:"300px"}}
+                            style={{height:"300px",width:"300px",border: "2px solid #070808",borderRadius: "10px"}}
                           />
                         ) : (
                           ''

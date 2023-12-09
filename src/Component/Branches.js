@@ -66,7 +66,7 @@ useEffect(
                 <div key={index} className="col-lg-4 wow fadeInUp my-4 " data-wow-delay="0.1s">
                     <div className="course-item bg-light">
                         <div className="position-relative overflow-hidden">
-                            <img src={e?.signedUrl} className="img-fluid"  alt=""/>
+                            <img src={e?.signedUrl} className="img-fluid"  alt="" style={{height:"300px",width:"400px",border: "2px solid #070808",borderRadius: "10px"}}/>
                             <div className="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
 
                                 <Link to={`/user/branches/${e._id}/${e.courseId}`}>

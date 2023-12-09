@@ -79,7 +79,7 @@ export default function Master() {
         >
           <h3
             className="mb-4 pb-2 pb-md-0 mb-md-4 justify-content-center "
-            style={{ paddingLeft: "20px",fontWeight: "bold",fontSize: "30px",justifyContent: "center" }}
+            style={{ paddingLeft: "5px",fontWeight: "bold",fontSize: "20px",justifyContent: "center" }}
           >
             Select MaterialType
           </h3>

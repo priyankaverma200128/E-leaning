@@ -39,7 +39,7 @@ useEffect(
     return(
         <>
         { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
-            <div className={load == true ? "disable-screen " : " "}>
+            <div className={load == true ? "disable-screen" : " "}>
       
  <div className="container-xxl py-5">
         <div className="container-fluid">

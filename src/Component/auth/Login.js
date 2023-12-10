@@ -26,18 +26,15 @@ export default function Login() {
     Apiservices.login(data)
       .then((res) => {
         console.log(res.data.data)
-
+        setLoad(false)
         if (res.data?.success && res.data.data.userType === 1) {
-          setLoad(true)
-          setTimeout(() => {
+            setTimeout(() => {
             setLoad(false)
             sessionStorage.setItem("token", res.data.token)
             sessionStorage.setItem("userData", JSON.stringify(res.data.data))
             history('/admin')
             toast.success(res.data?.message)
           }, 2000);
-
-
 
         } else if (res.data?.success && res.data.data.userType === 2) {
           
@@ -97,8 +94,8 @@ export default function Login() {
                 </div>
 
                 <form onSubmit={handleForm}>
-            Email: <input type='' className='form-control form-control-lg' placeholder='Enter a valid email address' onChange={(e) => { setEmail(e.target.value) }} /><br />
-            Password: <input type="password" className='form-control form-control-lg' placeholder='Enter your password' onChange={(e) => { setPassword(e.target.value) }} /><br />
+            Email: <input type='' className='form-control form-control-lg' placeholder='Enter a valid email address' onChange={(e) => { setEmail(e.target.value) }} required/><br />
+            Password: <input type="password" className='form-control form-control-lg' placeholder='Enter your password' onChange={(e) => { setPassword(e.target.value) }} required /><br />
             <button className='btn btn-primary btn-lg'>Login</button><br/>
             <h5>Don't have an account?</h5>
             <Link to="/register" className="text-primary" href="#!">Register</Link><br/>

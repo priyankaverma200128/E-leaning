@@ -4,6 +4,7 @@ import * as qs from 'qs'
 import React, { useState } from 'react'
 import Apiservices from '../layout/Apiservices';
 import { useNavigate } from 'react-router-dom';
+import { RingLoader } from "react-spinners"
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -14,6 +15,13 @@ export default function Register() {
     const [address, setAddress] = useState("");
     const [load,setload] = useState(false);
     const history= useNavigate();
+    
+  const obj = {
+    position: "absolute",
+    top: "30%",
+    left: "50%",
+    zIndex: 1,
+}
 
     const formSubmit = (e) => {
         setload(true)
@@ -43,6 +51,8 @@ export default function Register() {
     }
     return (
         <>
+        { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen" : " "}>
         <div className='container my-4 py-3'>
             <section  style={{ backgroundClip: " #eee" }}>
                 <div className="container ">
@@ -127,6 +137,7 @@ export default function Register() {
                     </div>
                 </div>
             </section>
+            </div>
             </div>
         </>
     )

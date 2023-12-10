@@ -13,7 +13,7 @@ export default function UpdateBranch() {
   const [load, setLoad] = useState(false)
   const obj = {
     position: "absolute",
-    top: "50%",
+    top: "300px",
     left: "50%",
     zIndex: 1,
   }

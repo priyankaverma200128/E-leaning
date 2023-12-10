@@ -8,7 +8,7 @@ export default function Master() {
   const [load,setload]=useState(true)
   const obj = {
       position: "absolute",
-      top: "30%",
+      top: "300px",
       left: "50%",
       zIndex: 1,
   }
@@ -89,7 +89,7 @@ export default function Master() {
             value={selectedmaterialtypename}
             onChange={handlemtname}
             aria-label=".form-select-lg example"
-            style={{ width: "200px",fontWeight: "bold",fontSize: "20px" }}
+            style={{ width: "150px",fontWeight: "italic",fontSize: "15px" }}
           >
             <option value="" selected disabled>
               Select materialtype

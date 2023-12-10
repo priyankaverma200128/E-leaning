@@ -10,7 +10,7 @@ export default function ShowMaterial() {
     const [load, setload] = useState(true)
     const obj = {
         position: "absolute",
-        top: "30%",
+        top: "300px",
         left: "50%",
         zIndex: 1,
     }

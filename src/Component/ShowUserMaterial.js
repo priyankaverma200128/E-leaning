@@ -13,7 +13,7 @@ export default function ShowUserMaterial() {
     const [load, setload] = useState(true)
     const obj = {
         position: "absolute",
-        top: "30%",
+        top: "300px",
         left: "50%",
         zIndex: 1,
     }
@@ -42,24 +42,7 @@ export default function ShowUserMaterial() {
 
         }, [load]
     )
-    const deleteData=(id)=>{
-        setIsBtn(true)
-        let data={
-            _id:id
-        }
-        Apiservices.DeleteMaterial(data).then(
-            (res)=>{
-                toast.success(res.data.message)
-                nav("/user/showmaterial")
-            }
-        ).catch(
-            (err)=>{
-                toast.error("Something went Wrong")
-                setIsBtn(false)
-            }
-        )
-    }
-
+    
     return (
         <>
         { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
@@ -79,7 +62,7 @@ export default function ShowUserMaterial() {
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
                             <th scope='col'>View</th>
-                            <th scope='col'>Delete</th>       
+                                 
                             <th scope="col">Edit</th>
                         </tr>
                     </thead>
@@ -93,11 +76,7 @@ export default function ShowUserMaterial() {
                             <i className='bi bi-eye' ></i>
                                 </Link>
                             </td>
-                            <td>
-                                <Link to={"/user/deleteMaterial/"+e?._id}>
-                                <i className="btn btn-lg text-danger bi bi-trash-fill fa-2x" style={{ fontWeight: 'bold',fontSize: "40px",alignItems:'start',justifyContent:'start' }} onClick={()=>{deleteData(e?._id)}} ></i>
-                                </Link>
-                            </td>
+                           
 
                             
                             <td>

@@ -13,7 +13,7 @@ export default function ShowCourses() {
     const [data, setData] = useState([])
     const obj = {
         position: "absolute",
-        top: "40%",
+        top: "300px",
         left: "50%",
         zIndex: 1,
     }

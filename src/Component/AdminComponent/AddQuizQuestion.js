@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Apiservices from '../layout/Apiservices';
 import { toast } from 'react-toastify';
+import { RingLoader } from "react-spinners"
 
 export default function AddQuizQuestion() {
   // const [ quizid,setquizid] = useState([])
@@ -16,6 +17,13 @@ export default function AddQuizQuestion() {
   const [ option3,setOption3] = useState([])
   const [ option4,setOption4] = useState([])
   const [ answer,setAnswer] = useState([])
+  const [load, setLoad] = useState(false)
+  const obj = {
+    position: "absolute",
+    top: "300px",
+    left: "50%",
+    zIndex: 1,
+  }
   const handleQuizId =(e =>{
     setquizId(e.target.value)
   })
@@ -36,6 +44,7 @@ export default function AddQuizQuestion() {
     },[]
    )
   const handleForm=(e)=>{
+    setLoad(true)
     e.preventDefault()
     let data={
     
@@ -51,6 +60,7 @@ export default function AddQuizQuestion() {
     .then(
         (res)=>{
             if(res.data.success){
+              setLoad(false)
             toast.success(res.data.message)
             }else{
                 toast.error(res.data.message)
@@ -61,7 +71,7 @@ export default function AddQuizQuestion() {
        
     ).catch(
         (err)=>{
-          
+            setLoad(false)
             toast.error("Something went Wrong")
         }
     )
@@ -78,6 +88,8 @@ useEffect(
 )
   return (
    <>
+   { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
     {/* Heading starts here */}
     <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
                 <h1>Add QuizQuestion</h1>
@@ -128,7 +140,7 @@ useEffect(
      
     <button className='btn btn-primary btn-lg' onClick={handleForm}>Submit</button>
     </div>
-    
+    </div>
    
    </> 
   )

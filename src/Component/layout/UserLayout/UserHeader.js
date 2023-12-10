@@ -56,15 +56,6 @@ export default function UserHeader() {
               <li className="nav-item">
                 <Link onClick={handleNavbarCollapse} to="/user/playedquiz" className="nav-link">PlayedQuiz</Link>
               </li>
-              {/* <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i className="bi bi-person-fill"></i>
-                </a>
-                <ul className="dropdown-menu dropdown-menu-end">
-                  <li><a className="dropdown-item" href="#">Profile</a></li>
-                  
-                </ul>
-              </li> */}
               
               <button className='btn btn-primary' style={{width:"150px"}} onClick={logout}>Logout</button><br/>
 

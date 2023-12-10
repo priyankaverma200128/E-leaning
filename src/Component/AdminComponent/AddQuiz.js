@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Apiservices from "../layout/Apiservices"
 import { Link } from 'react-router-dom';
 import Courses from '../Courses';
+import { RingLoader } from "react-spinners"
 
 export default function AddQuiz() {
   const [coursesdata, setCoursesdata] = useState([]);
@@ -14,7 +15,14 @@ export default function AddQuiz() {
   const [title, setTitle] = useState('');
   const [numberofQuestion,setnumberofQuestion] = useState('');
   const [name, setName] = useState('');
-  
+  const [load, setLoad] = useState(false)
+  const obj = {
+    position: "absolute",
+    top: "300px",
+    left: "50%",
+    zIndex: 1,
+  }
+
   useEffect(
     ()=>{
       Apiservices.ShowCourses()
@@ -53,6 +61,7 @@ const handlebranchId = (e)=>{
 
 
   const formSubmit = async (e) => {
+    setLoad(true)
     e.preventDefault();
     // console.log(coursename);
     const data = {
@@ -66,15 +75,19 @@ const handlebranchId = (e)=>{
     Apiservices.AddQuiz(data)
       .then((res) => {
         toast.success(res.data.message)
+        setLoad(false)
         // nav("/admin/Showquiz")
       })
       .catch((err) => {
+        setLoad(false)
         toast.error(err.message)
       })
   };
 
   return (
     <>
+    { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+            <div className={load == true ? "disable-screen " : " "}>
       {/* Heading starts here */}
       <div className="my-4 mt-4" style={{ backgroundColor: "#0a0f18", color: "white", height: "80px", paddingTop: "10px" }}>
         <h1>Add Quiz</h1>
@@ -121,6 +134,7 @@ const handlebranchId = (e)=>{
             style={{width:"300px"}}
             value={title}
             onChange={(e)=>{setTitle(e.target.value)}}
+            required
           />
           <br />
           numberofQuestion :{' '}
@@ -131,6 +145,7 @@ const handlebranchId = (e)=>{
             style={{width:"300px"}}
             value={numberofQuestion}
             onChange={(e)=>{setnumberofQuestion(e.target.value)}}
+            required
           />
           <br />
           
@@ -147,6 +162,7 @@ const handlebranchId = (e)=>{
 
           </div>
         </div>
+      </div>
       </div>
     </>
   );

@@ -15,7 +15,7 @@ export default function AddBranch() {
   const [load, setLoad] = useState(false)
   const obj = {
     position: "absolute",
-    top: "50%",
+    top: "300px",
     left: "50%",
     zIndex: 1,
   }

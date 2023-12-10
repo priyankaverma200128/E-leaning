@@ -24,9 +24,10 @@ export default function AdminHeader() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <div className="container-fluid">
+      <Link onClick={handleNavbarCollapse} to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 className="m-0 text-primary"><i className="fa fa-book me-3"></i>eLEARNING</h2>
-        </a>
+          </Link>
         <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>
         </button>
@@ -71,6 +72,7 @@ export default function AdminHeader() {
             
             </div>
             <button  className="btn btn-primary py-3  " onClick={logout}>Logout</button>
+        </div>
         </div>
     </nav>
     </div>

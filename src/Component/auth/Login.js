@@ -9,12 +9,7 @@ export default function Login() {
   const [pass, setPassword] = useState();
   const history = useNavigate();
   const [load, setLoad] = useState(false)
-  const obj = {
-    position: "absolute",
-    top: "30%",
-    left: "50%",
-    zIndex: 1,
-}
+ 
   const handleForm = (e) => {
     setLoad(true)
     e.preventDefault()
@@ -26,7 +21,7 @@ export default function Login() {
     Apiservices.login(data)
       .then((res) => {
         console.log(res.data.data)
-        setLoad(false)
+        // setLoad(false)
         if (res.data?.success && res.data.data.userType === 1) {
             setTimeout(() => {
             setLoad(false)
@@ -55,9 +50,16 @@ export default function Login() {
         toast.error(err.data?.message)
       })
   }
+  const obj = {
+    position: "absolute",
+    top: "300px",
+    left: "50%",
+    zIndex: 1,
+  
+}
   return (
     <>
-      { load == true && <RingLoader size={100} loading={load} cssOverride={obj} />}
+      { load === true && <RingLoader size={100} loading={load} cssOverride={obj} />}
             <div className={load == true ? "disable-screen" : " "}>
     <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" className="navbar-brand d-flex align-items-center px-4 px-lg-5">

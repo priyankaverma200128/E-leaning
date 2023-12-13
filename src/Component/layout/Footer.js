@@ -14,7 +14,7 @@ export default function Footer(){
                 </div>
                 <div className="col-lg-3 col-md-6">
                     <h4 className="text-white mb-3">Contact</h4>
-                    <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>123 Street, Jalandhar, Punjab</p>
                     <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 9878898984</p>
                     <p className="mb-2"><i className="fa fa-envelope me-3"></i>priyanka28vr@gmail.com</p>
                     <div className="d-flex pt-2">
@@ -50,10 +50,10 @@ export default function Footer(){
                 <div className="col-lg-3 col-md-6">
                     <h4 className="text-white mb-3">Newsletter</h4>
                     <p>In summary, e-learning leverages digital technologies to offer flexible, accessible, and interactive.</p>
-                    <div className="position-relative mx-auto" style={{maxWidth: "400px"}}>
-                        <input className="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email"/>
-                        <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
+                        {/* <div className="position-relative mx-auto" style={{maxWidth: "400px"}}>
+                            <input className="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email"/>
+                            <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div> */}
                 </div>
             </div>
         </div>
@@ -61,11 +61,11 @@ export default function Footer(){
             <div className="copyright">
                 <div className="row">
                     <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a className="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                        &copy; <a className="border-bottom" href="#">Your Site Name</a>, E-Learning platform
 
                         
-                        Designed By <a className="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br/><br/>
-                        Distributed By <a className="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                        {/* Designed By <a className="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br/><br/>
+                        Distributed By <a className="border-bottom" href="https://themewagon.com">ThemeWagon</a> */}
                     </div>
                     <div className="col-md-6 text-center text-md-end">
                         <div className="footer-menu">
